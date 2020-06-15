@@ -166,7 +166,8 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: EdgeInsets.only(
               top: screenSize.height * 0.55,
-              left: screenSize.width /15,
+              left: screenSize.width / 15,
+              right: screenSize.width / 15,
             ),
             child: Container(
               child: Column(
@@ -177,17 +178,108 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         'Featured',
-                        style: GoogleFonts.montserrat(fontSize: 40, fontWeight: FontWeight.w500),
+                        style: GoogleFonts.montserrat(
+                          fontSize: 40,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                       Expanded(
                         child: Text(
                           'Unique wildlife tours & destinations',
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.end,
                         ),
                       ),
                     ],
                   ),
-                  Row()
+                  Padding(
+                    padding: EdgeInsets.only(top: screenSize.height / 50),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: screenSize.width / 6,
+                              width: screenSize.width / 3.8,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/trekking.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: screenSize.height / 70,
+                              ),
+                              child: Text(
+                                'Trekking',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: screenSize.width / 6,
+                              width: screenSize.width / 3.8,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/animals.jpg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: screenSize.height / 70,
+                              ),
+                              child: Text(
+                                'Animals',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            SizedBox(
+                              height: screenSize.width / 6,
+                              width: screenSize.width / 3.8,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(5.0),
+                                child: Image.asset(
+                                  'assets/images/photography.jpeg',
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                top: screenSize.height / 70,
+                              ),
+                              child: Text(
+                                'Photography',
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
