@@ -10,16 +10,36 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List _isHovering = [false, false, false, false, false, false, false, false];
 
+  ScrollController _scrollController;
+  double _scrollPosition = 0;
+  double _opacity = 0;
+
+  _scrollListener() {
+    setState(() {
+      _scrollPosition = _scrollController.position.pixels;
+    });
+  }
+
+  @override
+  void initState() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
+    _opacity = _scrollPosition < screenSize.height * 0.40
+        ? _scrollPosition / (screenSize.height * 0.40)
+        : 1;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 1000),
         child: Container(
-          color: Colors.transparent,
+          color: Colors.blueGrey[900].withOpacity(_opacity),
           child: Padding(
             padding: EdgeInsets.all(20),
             child: Row(
@@ -150,6 +170,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: SingleChildScrollView(
+        controller: _scrollController,
         physics: ClampingScrollPhysics(),
         child: Column(
           children: [
