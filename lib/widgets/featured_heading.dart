@@ -26,8 +26,9 @@ class FeaturedHeading extends StatelessWidget {
                 Row(),
                 Text(
                   'Featured',
-                  style: GoogleFonts.montserrat(
+                  style: TextStyle(
                     fontSize: 30,
+                    fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -45,8 +46,9 @@ class FeaturedHeading extends StatelessWidget {
               children: [
                 Text(
                   'Featured',
-                  style: GoogleFonts.montserrat(
+                  style: TextStyle(
                     fontSize: 40,
+                    fontFamily: 'Montserrat',
                     fontWeight: FontWeight.w500,
                   ),
                 ),

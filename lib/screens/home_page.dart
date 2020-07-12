@@ -48,9 +48,10 @@ class _HomePageState extends State<HomePage> {
               elevation: 0,
               title: Text(
                 'EXPLORE',
-                style: GoogleFonts.montserrat(
+                style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
+                  fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
                   letterSpacing: 3,
                 ),

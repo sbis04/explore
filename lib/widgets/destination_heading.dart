@@ -23,8 +23,9 @@ class DestinationHeading extends StatelessWidget {
             child: Text(
               'Destinations diversity',
               textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(
+              style: TextStyle(
                 fontSize: 30,
+                fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -39,8 +40,9 @@ class DestinationHeading extends StatelessWidget {
             child: Text(
               'Destinations diversity',
               textAlign: TextAlign.center,
-              style: GoogleFonts.montserrat(
+              style: TextStyle(
                 fontSize: 40,
+                fontFamily: 'Montserrat',
                 fontWeight: FontWeight.w500,
               ),
             ),

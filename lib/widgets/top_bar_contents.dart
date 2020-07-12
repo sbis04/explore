@@ -37,9 +37,10 @@ class _TopBarContentsState extends State<TopBarContents> {
             children: [
               Text(
                 'EXPLORE',
-                style: GoogleFonts.montserrat(
+                style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
+                  fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
                   letterSpacing: 3,
                 ),

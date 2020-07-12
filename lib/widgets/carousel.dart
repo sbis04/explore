@@ -82,8 +82,9 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
           child: Center(
             child: Text(
               places[_current],
-              style: GoogleFonts.electrolize(
+              style: TextStyle(
                 letterSpacing: 8,
+                fontFamily: 'Electrolize',
                 fontSize: screenSize.width / 25,
                 color: Colors.white,
               ),

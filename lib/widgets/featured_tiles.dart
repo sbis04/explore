@@ -52,8 +52,9 @@ class FeaturedTiles extends StatelessWidget {
                               ),
                               child: Text(
                                 title[pageIndex],
-                                style: GoogleFonts.montserrat(
+                                style: TextStyle(
                                   fontSize: 16,
+                                  fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w500,
                                 ),
                               ),
@@ -97,8 +98,9 @@ class FeaturedTiles extends StatelessWidget {
                         ),
                         child: Text(
                           title[pageIndex],
-                          style: GoogleFonts.montserrat(
+                          style: TextStyle(
                             fontSize: 16,
+                            fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500,
                           ),
                         ),
