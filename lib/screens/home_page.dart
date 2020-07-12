@@ -81,19 +81,14 @@ class _HomePageState extends State<HomePage> {
                 Column(
                   children: [
                     FloatingQuickAccessBar(screenSize: screenSize),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        top: screenSize.height * 0.06,
-                        left: screenSize.width / 15,
-                        right: screenSize.width / 15,
-                      ),
-                      child: Container(
-                        child: Column(
-                          children: [
-                            FeaturedHeading(),
-                            FeaturedTiles(screenSize: screenSize)
-                          ],
-                        ),
+                    Container(
+                      child: Column(
+                        children: [
+                          FeaturedHeading(
+                            screenSize: screenSize,
+                          ),
+                          FeaturedTiles(screenSize: screenSize)
+                        ],
                       ),
                     ),
                   ],
