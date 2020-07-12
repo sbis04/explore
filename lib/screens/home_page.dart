@@ -1,6 +1,9 @@
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/carousel.dart';
 import 'package:explore/widgets/destination_heading.dart';
+import 'package:explore/widgets/featured_heading.dart';
+import 'package:explore/widgets/featured_tiles.dart';
+import 'package:explore/widgets/floating_quick_access_bar.dart';
 import 'package:explore/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,8 +14,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List _isHovering = [false, false, false, false, false, false, false, false];
-
   ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
@@ -69,245 +70,13 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     child: Column(
                       children: [
-                        Row(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Featured',
-                              style: GoogleFonts.montserrat(
-                                fontSize: 40,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Expanded(
-                              child: Text(
-                                'Unique wildlife tours & destinations',
-                                textAlign: TextAlign.end,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: screenSize.height / 50),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                children: [
-                                  SizedBox(
-                                    height: screenSize.width / 6,
-                                    width: screenSize.width / 3.8,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/trekking.jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: screenSize.height / 70,
-                                    ),
-                                    child: Text(
-                                      'Trekking',
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  SizedBox(
-                                    height: screenSize.width / 6,
-                                    width: screenSize.width / 3.8,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/animals.jpg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: screenSize.height / 70,
-                                    ),
-                                    child: Text(
-                                      'Animals',
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  SizedBox(
-                                    height: screenSize.width / 6,
-                                    width: screenSize.width / 3.8,
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(5.0),
-                                      child: Image.asset(
-                                        'assets/images/photography.jpeg',
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(
-                                      top: screenSize.height / 70,
-                                    ),
-                                    child: Text(
-                                      'Photography',
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
+                        FeaturedHeading(),
+                        FeaturedTiles(screenSize: screenSize)
                       ],
                     ),
                   ),
                 ),
-                Center(
-                  heightFactor: 1,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                        top: screenSize.height * 0.40,
-                        left: screenSize.width / 5,
-                        right: screenSize.width / 5),
-                    child: Card(
-                      elevation: 5,
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          top: screenSize.height / 50,
-                          bottom: screenSize.height / 50,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              onHover: (value) {
-                                setState(() {
-                                  value
-                                      ? _isHovering[4] = true
-                                      : _isHovering[4] = false;
-                                });
-                              },
-                              onTap: () {},
-                              child: Text(
-                                'Destination',
-                                style: TextStyle(
-                                  color: _isHovering[4]
-                                      ? Colors.blueGrey[900]
-                                      : Colors.blueGrey,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: screenSize.height / 20,
-                              child: VerticalDivider(
-                                width: 1,
-                                color: Colors.blueGrey[100],
-                                thickness: 1,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              onHover: (value) {
-                                setState(() {
-                                  value
-                                      ? _isHovering[5] = true
-                                      : _isHovering[5] = false;
-                                });
-                              },
-                              onTap: () {},
-                              child: Text(
-                                'Dates',
-                                style: TextStyle(
-                                  color: _isHovering[5]
-                                      ? Colors.blueGrey[900]
-                                      : Colors.blueGrey,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: screenSize.height / 20,
-                              child: VerticalDivider(
-                                width: 1,
-                                color: Colors.blueGrey[100],
-                                thickness: 1,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              onHover: (value) {
-                                setState(() {
-                                  value
-                                      ? _isHovering[6] = true
-                                      : _isHovering[6] = false;
-                                });
-                              },
-                              onTap: () {},
-                              child: Text(
-                                'People',
-                                style: TextStyle(
-                                  color: _isHovering[6]
-                                      ? Colors.blueGrey[900]
-                                      : Colors.blueGrey,
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: screenSize.height / 20,
-                              child: VerticalDivider(
-                                width: 1,
-                                color: Colors.blueGrey[100],
-                                thickness: 1,
-                              ),
-                            ),
-                            InkWell(
-                              splashColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              onHover: (value) {
-                                setState(() {
-                                  value
-                                      ? _isHovering[7] = true
-                                      : _isHovering[7] = false;
-                                });
-                              },
-                              onTap: () {},
-                              child: Text(
-                                'Experience',
-                                style: TextStyle(
-                                  color: _isHovering[7]
-                                      ? Colors.blueGrey[900]
-                                      : Colors.blueGrey,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
+                FloatingQuickAccessBar(screenSize: screenSize)
               ],
             ),
             // SizedBox(height: screenSize.height / 8),
