@@ -29,7 +29,7 @@ class FeaturedHeading extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 30,
                     fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(height: 5),
@@ -49,7 +49,7 @@ class FeaturedHeading extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 40,
                     fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 Expanded(
