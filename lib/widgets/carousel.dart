@@ -31,7 +31,7 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
     'AFRICA',
     'EUROPE',
     'SOUTH AMERICA',
-    'AUSTRAIA',
+    'AUSTRALIA',
     'ANTARCTICA',
   ];
 
