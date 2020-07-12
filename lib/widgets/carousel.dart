@@ -90,8 +90,9 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
             ),
           ),
         ),
-        ResponsiveWidget.isLargeScreen(context)
-            ? AspectRatio(
+        ResponsiveWidget.isSmallScreen(context)
+            ? Container()
+            : AspectRatio(
                 aspectRatio: 17 / 8,
                 child: Center(
                   heightFactor: 1,
@@ -172,8 +173,7 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
                     ),
                   ),
                 ),
-              )
-            : Container(),
+              ),
       ],
     );
   }
