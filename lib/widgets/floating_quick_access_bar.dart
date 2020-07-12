@@ -1,3 +1,4 @@
+import 'package:explore/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
 class FloatingQuickAccessBar extends StatefulWidget {
@@ -13,126 +14,119 @@ class FloatingQuickAccessBar extends StatefulWidget {
 }
 
 class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
-  List _isHovering = [false, false, false, false, false, false, false, false];
+  List _isHovering = [false, false, false, false];
+  List<Widget> rowElements = [];
+
+  List<String> items = ['Destination', 'Dates', 'People', 'Experience'];
+  List<IconData> icons = [
+    Icons.location_on,
+    Icons.date_range,
+    Icons.people,
+    Icons.wb_sunny
+  ];
+
+  List<Widget> generateRowElements() {
+    rowElements.clear();
+    for (int i = 0; i < items.length; i++) {
+      Widget elementTile = InkWell(
+        splashColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        onHover: (value) {
+          setState(() {
+            value ? _isHovering[i] = true : _isHovering[i] = false;
+          });
+        },
+        onTap: () {},
+        child: Text(
+          items[i],
+          style: TextStyle(
+            color: _isHovering[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+          ),
+        ),
+      );
+      Widget spacer = SizedBox(
+        height: widget.screenSize.height / 20,
+        child: VerticalDivider(
+          width: 1,
+          color: Colors.blueGrey[100],
+          thickness: 1,
+        ),
+      );
+      rowElements.add(elementTile);
+      if (i < items.length - 1) {
+        rowElements.add(spacer);
+      }
+    }
+
+    return rowElements;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
       heightFactor: 1,
       child: Padding(
         padding: EdgeInsets.only(
-            top: widget.screenSize.height * 0.40,
-            left: widget.screenSize.width / 5,
-            right: widget.screenSize.width / 5),
-        child: Card(
-          elevation: 5,
-          child: Padding(
-            padding: EdgeInsets.only(
-              top: widget.screenSize.height / 50,
-              bottom: widget.screenSize.height / 50,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                InkWell(
-                  splashColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  onHover: (value) {
-                    setState(() {
-                      value ? _isHovering[4] = true : _isHovering[4] = false;
-                    });
-                  },
-                  onTap: () {},
-                  child: Text(
-                    'Destination',
-                    style: TextStyle(
-                      color: _isHovering[4]
-                          ? Colors.blueGrey[900]
-                          : Colors.blueGrey,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: widget.screenSize.height / 20,
-                  child: VerticalDivider(
-                    width: 1,
-                    color: Colors.blueGrey[100],
-                    thickness: 1,
-                  ),
-                ),
-                InkWell(
-                  splashColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  onHover: (value) {
-                    setState(() {
-                      value ? _isHovering[5] = true : _isHovering[5] = false;
-                    });
-                  },
-                  onTap: () {},
-                  child: Text(
-                    'Dates',
-                    style: TextStyle(
-                      color: _isHovering[5]
-                          ? Colors.blueGrey[900]
-                          : Colors.blueGrey,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: widget.screenSize.height / 20,
-                  child: VerticalDivider(
-                    width: 1,
-                    color: Colors.blueGrey[100],
-                    thickness: 1,
-                  ),
-                ),
-                InkWell(
-                  splashColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  onHover: (value) {
-                    setState(() {
-                      value ? _isHovering[6] = true : _isHovering[6] = false;
-                    });
-                  },
-                  onTap: () {},
-                  child: Text(
-                    'People',
-                    style: TextStyle(
-                      color: _isHovering[6]
-                          ? Colors.blueGrey[900]
-                          : Colors.blueGrey,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: widget.screenSize.height / 20,
-                  child: VerticalDivider(
-                    width: 1,
-                    color: Colors.blueGrey[100],
-                    thickness: 1,
-                  ),
-                ),
-                InkWell(
-                  splashColor: Colors.transparent,
-                  hoverColor: Colors.transparent,
-                  onHover: (value) {
-                    setState(() {
-                      value ? _isHovering[7] = true : _isHovering[7] = false;
-                    });
-                  },
-                  onTap: () {},
-                  child: Text(
-                    'Experience',
-                    style: TextStyle(
-                      color: _isHovering[7]
-                          ? Colors.blueGrey[900]
-                          : Colors.blueGrey,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          top: widget.screenSize.height * 0.40,
+          left: ResponsiveWidget.isSmallScreen(context)
+              ? widget.screenSize.width / 12
+              : widget.screenSize.width / 5,
+          right: ResponsiveWidget.isSmallScreen(context)
+              ? widget.screenSize.width / 12
+              : widget.screenSize.width / 5,
         ),
+        child: ResponsiveWidget.isSmallScreen(context)
+            ? Column(
+                children: [
+                  ...Iterable<int>.generate(items.length).map(
+                    (int pageIndex) => Padding(
+                      padding:
+                          EdgeInsets.only(top: widget.screenSize.height / 80),
+                      child: Card(
+                        elevation: 4,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                              top: widget.screenSize.height / 45,
+                              bottom: widget.screenSize.height / 45,
+                              left: widget.screenSize.width / 20),
+                          child: Row(
+                            children: [
+                              Icon(
+                                icons[pageIndex],
+                                color: Colors.blueGrey,
+                              ),
+                              SizedBox(width: widget.screenSize.width / 20),
+                              InkWell(
+                                splashColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                onTap: () {},
+                                child: Text(
+                                  items[pageIndex],
+                                  style: TextStyle(
+                                      color: Colors.blueGrey, fontSize: 16),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
+            : Card(
+                elevation: 5,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: widget.screenSize.height / 50,
+                    bottom: widget.screenSize.height / 50,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: generateRowElements(),
+                  ),
+                ),
+              ),
       ),
     );
   }

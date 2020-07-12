@@ -1,10 +1,12 @@
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/carousel.dart';
 import 'package:explore/widgets/destination_heading.dart';
+import 'package:explore/widgets/explore_drawer.dart';
 import 'package:explore/widgets/featured_heading.dart';
 import 'package:explore/widgets/featured_tiles.dart';
 import 'package:explore/widgets/floating_quick_access_bar.dart';
-import 'package:explore/widgets/top_bar.dart';
+import 'package:explore/widgets/responsive.dart';
+import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -40,10 +42,25 @@ class _HomePageState extends State<HomePage> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
-        preferredSize: Size(screenSize.width, 1000),
-        child: TopBar(_opacity),
-      ),
+      appBar: ResponsiveWidget.isSmallScreen(context)
+          ? AppBar(
+              backgroundColor: Colors.blueGrey[900].withOpacity(_opacity),
+              elevation: 0,
+              title: Text(
+                'EXPLORE',
+                style: GoogleFonts.montserrat(
+                  color: Colors.blueGrey[100],
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                  letterSpacing: 3,
+                ),
+              ),
+            )
+          : PreferredSize(
+              preferredSize: Size(screenSize.width, 1000),
+              child: TopBarContents(_opacity),
+            ),
+      drawer: ExploreDrawer(),
       body: SingleChildScrollView(
         controller: _scrollController,
         physics: ClampingScrollPhysics(),
@@ -61,22 +78,26 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: screenSize.height * 0.55,
-                    left: screenSize.width / 15,
-                    right: screenSize.width / 15,
-                  ),
-                  child: Container(
-                    child: Column(
-                      children: [
-                        FeaturedHeading(),
-                        FeaturedTiles(screenSize: screenSize)
-                      ],
+                Column(
+                  children: [
+                    FloatingQuickAccessBar(screenSize: screenSize),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: screenSize.height * 0.06,
+                        left: screenSize.width / 15,
+                        right: screenSize.width / 15,
+                      ),
+                      child: Container(
+                        child: Column(
+                          children: [
+                            FeaturedHeading(),
+                            FeaturedTiles(screenSize: screenSize)
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                FloatingQuickAccessBar(screenSize: screenSize)
+                  ],
+                )
               ],
             ),
             // SizedBox(height: screenSize.height / 8),

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TopBar extends StatefulWidget {
+class TopBarContents extends StatefulWidget {
   final double opacity;
 
-  TopBar(this.opacity);
+  TopBarContents(this.opacity);
 
   @override
-  _TopBarState createState() => _TopBarState();
+  _TopBarContentsState createState() => _TopBarContentsState();
 }
 
-class _TopBarState extends State<TopBar> {
+class _TopBarContentsState extends State<TopBarContents> {
   final List _isHovering = [
     false,
     false,
