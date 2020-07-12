@@ -10,6 +10,7 @@ class InfoText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           '$type: ',
@@ -18,11 +19,13 @@ class InfoText extends StatelessWidget {
             fontSize: 16,
           ),
         ),
-        Text(
-          text,
-          style: TextStyle(
-            color: Colors.blueGrey[100],
-            fontSize: 16,
+        Flexible(
+          child: Text(
+            text,
+            style: TextStyle(
+              color: Colors.blueGrey[100],
+              fontSize: 16,
+            ),
           ),
         )
       ],

@@ -8,7 +8,6 @@ import 'package:explore/widgets/floating_quick_access_bar.dart';
 import 'package:explore/widgets/responsive.dart';
 import 'package:explore/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   @override

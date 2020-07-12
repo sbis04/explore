@@ -1,6 +1,5 @@
 import 'package:explore/widgets/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class FeaturedHeading extends StatelessWidget {
   const FeaturedHeading({
@@ -27,7 +26,7 @@ class FeaturedHeading extends StatelessWidget {
                 Text(
                   'Featured',
                   style: TextStyle(
-                    fontSize: 30,
+                    fontSize: 24,
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
                   ),
