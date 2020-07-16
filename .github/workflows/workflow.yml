@@ -1,0 +1,39 @@
+name: Flutter Web
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
+      - name: Enable Web
+        run: flutter config --enable-web
+        working-directory: ./
+      - name: Install Dependencies
+        run: flutter packages get
+        working-directory: ./
+      - name: Build Web
+        run: flutter build web
+        working-directory: ./
+      - name: Deploy
+        run: |
+          cd build/web
+          git init
+          git config user.name  "CI"
+          git config user.email "flutter-ci@github.com"
+          git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/sbis04/explore.git
+          git checkout -b gh-pages
+          git add .
+          git commit -m "Add GitHub Pages support"
+          git push --force secure-origin gh-pages
