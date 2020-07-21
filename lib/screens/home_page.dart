@@ -41,12 +41,13 @@ class _HomePageState extends State<HomePage> {
     _opacity = _scrollPosition < screenSize.height * 0.40
         ? _scrollPosition / (screenSize.height * 0.40)
         : 1;
+    double _scrollerHeight = screenSize.height * 0.20;
 
     double _topMargin = _scrollController.hasClients
         ? ((screenSize.height *
                 _scrollPosition /
                 _scrollController.position.maxScrollExtent) -
-            (100 *
+            (_scrollerHeight *
                 _scrollPosition /
                 _scrollController.position.maxScrollExtent))
         : 0;
@@ -81,13 +82,13 @@ class _HomePageState extends State<HomePage> {
                 _isUpdating = true;
               });
             } else {
-              Future.delayed(Duration(seconds: 3), () {
+              Future.delayed(Duration(seconds: 5), () {
                 setState(() {
                   _isUpdating = false;
                 });
               });
             }
-            print(_isUpdating);
+            // print(_isUpdating);
           }
           return true;
         },
@@ -150,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.topCenter,
                   child: GestureDetector(
                     child: Container(
-                      height: 100.0,
+                      height: _scrollerHeight,
                       width: 8.0,
                       margin: EdgeInsets.only(
                         left: 1.0,
@@ -164,14 +165,47 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
+                    onTapCancel: () {
+                      Future.delayed(Duration(seconds: 5), () {
+                        setState(() {
+                          _isUpdating = false;
+                        });
+                      });
+                    },
+                    onTapDown: (details) {
+                      setState(() {
+                        _isUpdating = true;
+                      });
+                    },
                     onVerticalDragUpdate: (dragUpdate) {
-                      _scrollController.position
-                          .moveTo(dragUpdate.globalPosition.dy * 3.5);
+                      _scrollController.position.moveTo(dragUpdate
+                              .globalPosition.dy +
+                          dragUpdate.globalPosition.dy *
+                              (_scrollPosition /
+                                  _scrollController.position.maxScrollExtent) -
+                          (_scrollerHeight *
+                              _scrollPosition /
+                              _scrollController.position.maxScrollExtent));
 
                       setState(() {
-                        if (dragUpdate.globalPosition.dy >= 0) {
-                          _scrollPosition = dragUpdate.globalPosition.dy;
+                        if (dragUpdate.globalPosition.dy >= 0 &&
+                            _scrollPosition <=
+                                _scrollController.position.maxScrollExtent) {
+                          print(
+                              'MAX: ${_scrollController.position.maxScrollExtent}');
+                          print(
+                              'MIN: ${_scrollController.position.minScrollExtent}');
+                          print('CURRENT: $_scrollPosition');
+                          _scrollPosition = dragUpdate.globalPosition.dy +
+                              dragUpdate.globalPosition.dy *
+                                  (_scrollPosition /
+                                      _scrollController
+                                          .position.maxScrollExtent) -
+                              (_scrollerHeight *
+                                  _scrollPosition /
+                                  _scrollController.position.maxScrollExtent);
                         }
+
                         print(
                             "View offset ${_scrollController.offset} scroll-bar offset $_scrollPosition");
                       });
