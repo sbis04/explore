@@ -42,6 +42,15 @@ class _HomePageState extends State<HomePage> {
         ? _scrollPosition / (screenSize.height * 0.40)
         : 1;
 
+    double _topMargin = _scrollController.hasClients
+        ? ((screenSize.height *
+                _scrollPosition /
+                _scrollController.position.maxScrollExtent) -
+            (100 *
+                _scrollPosition /
+                _scrollController.position.maxScrollExtent))
+        : 0;
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
@@ -146,15 +155,7 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(
                         left: 1.0,
                         right: 1.0,
-                        top: _scrollController.hasClients
-                            ? ((screenSize.height *
-                                    _scrollPosition /
-                                    _scrollController
-                                        .position.maxScrollExtent) -
-                                (100 *
-                                    _scrollPosition /
-                                    _scrollController.position.maxScrollExtent))
-                            : 0,
+                        top: _topMargin,
                       ),
                       decoration: BoxDecoration(
                         color: Colors.black45,
