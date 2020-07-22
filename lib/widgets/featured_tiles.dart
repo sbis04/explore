@@ -55,6 +55,10 @@ class FeaturedTiles extends StatelessWidget {
                                   fontSize: 16,
                                   fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w500,
+                                  color: Theme.of(context)
+                                      .primaryTextTheme
+                                      .subtitle1
+                                      .color,
                                 ),
                               ),
                             ),
@@ -101,6 +105,10 @@ class FeaturedTiles extends StatelessWidget {
                             fontSize: 16,
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w500,
+                            color: Theme.of(context)
+                                .primaryTextTheme
+                                .subtitle1
+                                .color,
                           ),
                         ),
                       ),
