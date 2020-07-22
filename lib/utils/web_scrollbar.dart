@@ -134,11 +134,6 @@ class _WebScrollbarState extends State<WebScrollbar> {
                           _scrollPosition <=
                               widget
                                   .scrollController.position.maxScrollExtent) {
-                        print(
-                            'MAX: ${widget.scrollController.position.maxScrollExtent}');
-                        print(
-                            'MIN: ${widget.scrollController.position.minScrollExtent}');
-                        print('CURRENT: $_scrollPosition');
                         _scrollPosition = dragUpdate.globalPosition.dy +
                             dragUpdate.globalPosition.dy *
                                 (_scrollPosition /
