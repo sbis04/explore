@@ -1,3 +1,4 @@
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:explore/utils/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/carousel.dart';
@@ -41,11 +42,28 @@ class _HomePageState extends State<HomePage> {
         : 1;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
-              backgroundColor: Colors.blueGrey[900].withOpacity(_opacity),
+              backgroundColor:
+                  Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
               elevation: 0,
+              centerTitle: true,
+              actions: [
+                IconButton(
+                  icon: Icon(Icons.brightness_6),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onPressed: () {
+                    DynamicTheme.of(context).setBrightness(
+                        Theme.of(context).brightness == Brightness.dark
+                            ? Brightness.light
+                            : Brightness.dark);
+                    print(Theme.of(context).brightness);
+                  },
+                ),
+              ],
               title: Text(
                 'EXPLORE',
                 style: TextStyle(
