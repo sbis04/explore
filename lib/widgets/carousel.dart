@@ -59,6 +59,9 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
         CarouselSlider(
           items: imageSliders,
           options: CarouselOptions(
+              scrollPhysics: ResponsiveWidget.isSmallScreen(context)
+                  ? PageScrollPhysics()
+                  : NeverScrollableScrollPhysics(),
               enlargeCenterPage: true,
               aspectRatio: 18 / 8,
               autoPlay: true,
@@ -138,8 +141,14 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
                                           places[i],
                                           style: TextStyle(
                                             color: _isHovering[i]
-                                                ? Colors.blueGrey[900]
-                                                : Colors.blueGrey,
+                                                ? Theme.of(context)
+                                                    .primaryTextTheme
+                                                    .button
+                                                    .decorationColor
+                                                : Theme.of(context)
+                                                    .primaryTextTheme
+                                                    .button
+                                                    .color,
                                           ),
                                         ),
                                       ),

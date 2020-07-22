@@ -12,7 +12,7 @@ class BottomBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(30),
-      color: Colors.blueGrey[900],
+      color: Theme.of(context).bottomAppBarColor,
       child: ResponsiveWidget.isSmallScreen(context)
           ? Column(
               children: [
@@ -40,8 +40,10 @@ class BottomBar extends StatelessWidget {
                     ),
                   ],
                 ),
-                Divider(
+                Container(
                   color: Colors.blueGrey,
+                  width: double.maxFinite,
+                  height: 1,
                 ),
                 SizedBox(height: 20),
                 InfoText(
@@ -54,8 +56,10 @@ class BottomBar extends StatelessWidget {
                   text: '128, Trymore Road, Delft, MN - 56124',
                 ),
                 SizedBox(height: 20),
-                Divider(
+                Container(
                   color: Colors.blueGrey,
+                  width: double.maxFinite,
+                  height: 1,
                 ),
                 SizedBox(height: 20),
                 Text(
@@ -112,8 +116,13 @@ class BottomBar extends StatelessWidget {
                     ),
                   ],
                 ),
-                Divider(
-                  color: Colors.blueGrey,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.blueGrey,
+                    width: double.maxFinite,
+                    height: 1,
+                  ),
                 ),
                 SizedBox(height: 20),
                 Text(

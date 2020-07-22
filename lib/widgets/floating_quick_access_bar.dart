@@ -40,7 +40,9 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
         child: Text(
           items[i],
           style: TextStyle(
-            color: _isHovering[i] ? Colors.blueGrey[900] : Colors.blueGrey,
+            color: _isHovering[i]
+                ? Theme.of(context).primaryTextTheme.button.decorationColor
+                : Theme.of(context).primaryTextTheme.button.color,
           ),
         ),
       );
@@ -83,6 +85,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                       padding:
                           EdgeInsets.only(top: widget.screenSize.height / 80),
                       child: Card(
+                        color: Theme.of(context).cardColor,
                         elevation: 4,
                         child: Padding(
                           padding: EdgeInsets.only(
@@ -93,7 +96,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                             children: [
                               Icon(
                                 icons[pageIndex],
-                                color: Colors.blueGrey,
+                                color: Theme.of(context).iconTheme.color,
                               ),
                               SizedBox(width: widget.screenSize.width / 20),
                               InkWell(
@@ -103,7 +106,11 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                                 child: Text(
                                   items[pageIndex],
                                   style: TextStyle(
-                                      color: Colors.blueGrey, fontSize: 16),
+                                      color: Theme.of(context)
+                                          .primaryTextTheme
+                                          .button
+                                          .color,
+                                      fontSize: 16),
                                 ),
                               ),
                             ],
