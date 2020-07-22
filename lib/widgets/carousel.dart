@@ -141,8 +141,14 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
                                           places[i],
                                           style: TextStyle(
                                             color: _isHovering[i]
-                                                ? Colors.blueGrey[900]
-                                                : Colors.blueGrey,
+                                                ? Theme.of(context)
+                                                    .primaryTextTheme
+                                                    .button
+                                                    .decorationColor
+                                                : Theme.of(context)
+                                                    .primaryTextTheme
+                                                    .button
+                                                    .color,
                                           ),
                                         ),
                                       ),
