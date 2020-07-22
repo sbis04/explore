@@ -9,7 +9,7 @@ class ExploreDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.blueGrey[900],
+        color: Theme.of(context).bottomAppBarColor,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
