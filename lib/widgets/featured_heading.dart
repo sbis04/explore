@@ -35,6 +35,7 @@ class FeaturedHeading extends StatelessWidget {
                 Text(
                   'Unique wildlife tours & destinations',
                   textAlign: TextAlign.end,
+                  style: Theme.of(context).primaryTextTheme.subtitle1,
                 ),
                 SizedBox(height: 10),
               ],
@@ -55,6 +56,7 @@ class FeaturedHeading extends StatelessWidget {
                   child: Text(
                     'Unique wildlife tours & destinations',
                     textAlign: TextAlign.end,
+                    style: Theme.of(context).primaryTextTheme.subtitle1,
                   ),
                 ),
               ],
