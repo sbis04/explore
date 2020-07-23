@@ -1,5 +1,5 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
-import 'package:explore/utils/web_scrollbar.dart';
+import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/carousel.dart';
 import 'package:explore/widgets/destination_heading.dart';
