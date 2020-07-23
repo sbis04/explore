@@ -81,8 +81,11 @@ class _HomePageState extends State<HomePage> {
             ),
       drawer: ExploreDrawer(),
       body: WebScrollbar(
-        scrollerHeightFrac: 0.3,
-        scrollController: _scrollController,
+        color: Colors.blueGrey,
+        backgroundColor: Colors.blueGrey.withOpacity(0.3),
+        width: 10,
+        heightFraction: 0.3,
+        controller: _scrollController,
         child: SingleChildScrollView(
           controller: _scrollController,
           physics: ClampingScrollPhysics(),
