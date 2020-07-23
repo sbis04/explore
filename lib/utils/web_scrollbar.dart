@@ -100,7 +100,7 @@ class _WebScrollbarState extends State<WebScrollbar> {
                 left: MediaQuery.of(context).size.width - widget.width + 2,
               ),
               color: widget.backgroundColor,
-              child: Container(
+              child: Align(
                 alignment: Alignment.topCenter,
                 child: GestureDetector(
                   child: Container(
