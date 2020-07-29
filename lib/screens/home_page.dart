@@ -13,6 +13,9 @@ import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
   static const String route = '/';
+  final bool loggedIn;
+
+  HomePage({this.loggedIn = false}) : assert(loggedIn != null);
 
   @override
   _HomePageState createState() => _HomePageState();
