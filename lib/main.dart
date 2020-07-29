@@ -1,4 +1,5 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:explore/screens/login_page.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_page.dart';
@@ -53,7 +54,12 @@ class MyApp extends StatelessWidget {
         title: 'Explore',
         theme: data,
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        initialRoute: HomePage.route,
+        routes: {
+          HomePage.route: (context) => HomePage(),
+          LoginPage.route: (context) => LoginPage(),
+        },
+        // home: HomePage(),
       ),
     );
   }
