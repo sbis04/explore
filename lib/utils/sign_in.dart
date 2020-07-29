@@ -10,7 +10,7 @@ bool authSignedIn;
 bool detailsUploaded;
 String uid;
 String name;
-String email;
+String userEmail;
 String imageUrl;
 
 /// The main Firestore collection
@@ -36,7 +36,7 @@ Future getUser() async {
     if (user != null) {
       uid = user.uid;
       name = user.displayName;
-      email = user.email;
+      userEmail = user.email;
       imageUrl = user.photoUrl;
     }
   }
@@ -68,7 +68,7 @@ Future<String> signInWithGoogle() async {
 
   uid = user.uid;
   name = user.displayName;
-  email = user.email;
+  userEmail = user.email;
   imageUrl = user.photoUrl;
 
   // Only taking the first part of the name, i.e., First Name
@@ -102,7 +102,7 @@ Future<String> registerWithEmailPassword(String email, String password) async {
   assert(user.email != null);
 
   uid = user.uid;
-  email = user.email;
+  userEmail = user.email;
 
   assert(!user.isAnonymous);
   assert(await user.getIdToken() != null);
@@ -130,7 +130,7 @@ Future<String> signInWithEmailPassword(String email, String password) async {
   assert(user.email != null);
 
   uid = user.uid;
-  email = user.email;
+  userEmail = user.email;
 
   assert(!user.isAnonymous);
   assert(await user.getIdToken() != null);
