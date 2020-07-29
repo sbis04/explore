@@ -1,4 +1,5 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:explore/screens/home_page.dart';
 import 'package:explore/screens/login_page.dart';
 import 'package:explore/utils/sign_in.dart';
 import 'package:flutter/material.dart';
@@ -194,27 +195,27 @@ class _TopBarContentsState extends State<TopBarContents> {
                           : Brightness.dark);
                 },
               ),
-              SizedBox(width: 10),
-              InkWell(
-                onHover: (value) {
-                  setState(() {
-                    value ? _isHovering[2] = true : _isHovering[2] = false;
-                  });
-                },
-                onTap: () {
-                  // registerWithEmailPassword(
-                  //         textControllerEmail.text, textControllerPassword.text)
-                  //     .then((result) {
-                  //   print(result);
-                  // }).catchError((e) => print(e));
-                },
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(
-                    color: _isHovering[2] ? Colors.white : Colors.white70,
-                  ),
-                ),
-              ),
+              // SizedBox(width: 10),
+              // InkWell(
+              //   onHover: (value) {
+              //     setState(() {
+              //       value ? _isHovering[2] = true : _isHovering[2] = false;
+              //     });
+              //   },
+              //   onTap: () {
+              //     // registerWithEmailPassword(
+              //     //         textControllerEmail.text, textControllerPassword.text)
+              //     //     .then((result) {
+              //     //   print(result);
+              //     // }).catchError((e) => print(e));
+              //   },
+              //   child: Text(
+              //     'Sign Up',
+              //     style: TextStyle(
+              //       color: _isHovering[2] ? Colors.white : Colors.white70,
+              //     ),
+              //   ),
+              // ),
               SizedBox(
                 width: screenSize.width / 50,
               ),
@@ -454,6 +455,20 @@ class _TopBarContentsState extends State<TopBarContents> {
                                                   _isEditingEmail = false;
                                                   _isEditingPassword = false;
                                                 });
+                                                Future.delayed(
+                                                    Duration(milliseconds: 500),
+                                                    () {
+                                                  Navigator.of(context).pop();
+                                                  Navigator.of(context)
+                                                      .pushReplacement(
+                                                          MaterialPageRoute(
+                                                    fullscreenDialog: true,
+                                                    builder: (context) =>
+                                                        HomePage(
+                                                      loggedIn: true,
+                                                    ),
+                                                  ));
+                                                });
                                               },
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
@@ -651,7 +666,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                   // }).catchError((e) => print(e));
                 },
                 child: Text(
-                  'Login',
+                  'Sign in',
                   style: TextStyle(
                     color: _isHovering[3] ? Colors.white : Colors.white70,
                   ),
