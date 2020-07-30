@@ -58,7 +58,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                       ),
                     )
                   : Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         CircleAvatar(
@@ -72,7 +72,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                 )
                               : Container(),
                         ),
-                        SizedBox(width: 5),
+                        SizedBox(width: 10),
                         Text(
                           name ?? userEmail,
                           style: TextStyle(
@@ -105,7 +105,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                     ),
                                   );
                                 }).catchError((error) {
-                                  print('Registration Error: $error');
+                                  print('Sign Out Error: $error');
                                 });
                                 setState(() {
                                   _isProcessing = false;
