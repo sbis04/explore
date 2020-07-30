@@ -1,11 +1,8 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:explore/screens/home_page.dart';
-import 'package:explore/screens/login_page.dart';
 import 'package:explore/utils/sign_in.dart';
 import 'package:explore/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
-
-import 'google_sign_in_button.dart';
 
 class TopBarContents extends StatefulWidget {
   final double opacity;
