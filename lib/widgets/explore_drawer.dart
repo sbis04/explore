@@ -20,8 +20,8 @@ class ExploreDrawer extends StatelessWidget {
                 width: double.maxFinite,
                 child: FlatButton(
                   color: Colors.black,
-                  hoverColor: Colors.blueGrey[700],
-                  highlightColor: Colors.black,
+                  hoverColor: Colors.blueGrey[800],
+                  highlightColor: Colors.blueGrey[700],
                   onPressed: () {},
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
