@@ -16,34 +16,32 @@ class ExploreDrawer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              InkWell(
-                onTap: () {},
-                child: Text(
-                  'Login',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
+              Container(
+                width: double.maxFinite,
+                child: FlatButton(
+                  color: Colors.black,
+                  hoverColor: Colors.blueGrey[700],
+                  highlightColor: Colors.black,
+                  onPressed: () {},
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      top: 15.0,
+                      bottom: 15.0,
+                    ),
+                    child: Text(
+                      'Sign in',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Divider(
-                  color: Colors.blueGrey[400],
-                  thickness: 2,
-                ),
-              ),
-              InkWell(
-                onTap: () {},
-                child: Text(
-                  'Sign Up',
-                  style: TextStyle(color: Colors.white, fontSize: 22),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: Divider(
-                  color: Colors.blueGrey[400],
-                  thickness: 2,
-                ),
-              ),
+              SizedBox(height: 20),
               InkWell(
                 onTap: () {},
                 child: Text(
