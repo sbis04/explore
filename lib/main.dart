@@ -1,5 +1,5 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
-import 'package:explore/screens/login_page.dart';
+import 'package:explore/utils/sign_in.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_page.dart';
@@ -8,7 +8,24 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Future getUserInfo() async {
+    await getUser();
+    setState(() {});
+    print(uid);
+  }
+
+  @override
+  void initState() {
+    getUserInfo();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DynamicTheme(
@@ -24,9 +41,13 @@ class MyApp extends StatelessWidget {
                     color: Colors.blueGrey,
                     decorationColor: Colors.blueGrey[300],
                   ),
+                  subtitle2: TextStyle(
+                    color: Colors.blueGrey[900],
+                  ),
                   subtitle1: TextStyle(
                     color: Colors.black,
                   ),
+                  headline1: TextStyle(color: Colors.blueGrey[800]),
                 ),
                 bottomAppBarColor: Colors.blueGrey[900],
                 iconTheme: IconThemeData(color: Colors.blueGrey),
@@ -41,8 +62,14 @@ class MyApp extends StatelessWidget {
                     color: Colors.blueGrey[200],
                     decorationColor: Colors.blueGrey[50],
                   ),
+                  subtitle2: TextStyle(
+                    color: Colors.white,
+                  ),
                   subtitle1: TextStyle(
                     color: Colors.blueGrey[300],
+                  ),
+                  headline1: TextStyle(
+                    color: Colors.white70,
                   ),
                 ),
                 bottomAppBarColor: Colors.black,
@@ -54,12 +81,7 @@ class MyApp extends StatelessWidget {
         title: 'Explore',
         theme: data,
         debugShowCheckedModeBanner: false,
-        initialRoute: HomePage.route,
-        routes: {
-          HomePage.route: (context) => HomePage(),
-          LoginPage.route: (context) => LoginPage(),
-        },
-        // home: HomePage(),
+        home: HomePage(),
       ),
     );
   }
