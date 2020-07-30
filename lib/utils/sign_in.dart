@@ -7,7 +7,7 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
 bool authSignedIn;
-bool detailsUploaded;
+// bool detailsUploaded;
 String uid;
 String name;
 String userEmail;
@@ -138,6 +138,19 @@ Future<String> signInWithEmailPassword(String email, String password) async {
   authSignedIn = true;
 
   return 'Successfully logged in, User UID: ${user.uid}';
+}
+
+Future<String> signOut() async {
+  await _auth.signOut();
+
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  prefs.setBool('auth', false);
+  authSignedIn = false;
+
+  uid = null;
+  userEmail = null;
+
+  return 'User signed out';
 }
 
 /// For signing out of their Google account
