@@ -28,59 +28,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     false
   ];
 
-  // TextEditingController textControllerEmail;
-  // FocusNode textFocusNodeEmail;
-  // bool _isEditingEmail = false;
-
-  // TextEditingController textControllerPassword;
-  // FocusNode textFocusNodePassword;
-  // bool _isEditingPassword = false;
-
-  // bool _isRegistering = false;
-  // bool _isLoggingIn = false;
-
-  // String loginStatus;
-  // Color loginStringColor = Colors.green;
-
-  // String _validateEmail(String value) {
-  //   value = value.trim();
-
-  //   if (textControllerEmail.text != null) {
-  //     if (value.isEmpty) {
-  //       return 'Email can\'t be empty';
-  //     } else if (!value.contains(RegExp(
-  //         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+"))) {
-  //       return 'Enter a correct email address';
-  //     }
-  //   }
-
-  //   return null;
-  // }
-
-  // String _validatePassword(String value) {
-  //   value = value.trim();
-
-  //   if (textControllerEmail.text != null) {
-  //     if (value.isEmpty) {
-  //       return 'Password can\'t be empty';
-  //     } else if (value.length < 6) {
-  //       return 'Length of password should be greater than 6';
-  //     }
-  //   }
-
-  //   return null;
-  // }
-
-  // @override
-  // void initState() {
-  //   textControllerEmail = TextEditingController();
-  //   textControllerPassword = TextEditingController();
-  //   textControllerEmail.text = null;
-  //   textControllerPassword.text = null;
-  //   textFocusNodeEmail = FocusNode();
-  //   textFocusNodePassword = FocusNode();
-  //   super.initState();
-  // }
+  bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -241,6 +189,51 @@ class _TopBarContentsState extends State<TopBarContents> {
                               color: _isHovering[3]
                                   ? Colors.white
                                   : Colors.white70,
+                            ),
+                          ),
+                          SizedBox(width: 10),
+                          FlatButton(
+                            color: Colors.blueGrey,
+                            hoverColor: Colors.blueGrey[700],
+                            highlightColor: Colors.blueGrey[800],
+                            onPressed: _isProcessing
+                                ? null
+                                : () async {
+                                    setState(() {
+                                      _isProcessing = true;
+                                    });
+                                    await signOut().then((result) {
+                                      print(result);
+                                      Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                          fullscreenDialog: true,
+                                          builder: (context) => HomePage(),
+                                        ),
+                                      );
+                                    }).catchError((error) {
+                                      print('Sign Out Error: $error');
+                                    });
+                                    setState(() {
+                                      _isProcessing = false;
+                                    });
+                                  },
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsets.only(
+                                top: 8.0,
+                                bottom: 8.0,
+                              ),
+                              child: _isProcessing
+                                  ? CircularProgressIndicator()
+                                  : Text(
+                                      'Sign out',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                             ),
                           )
                         ],
