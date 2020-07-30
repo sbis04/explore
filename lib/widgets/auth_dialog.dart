@@ -67,7 +67,7 @@ class _AuthDialogState extends State<AuthDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
@@ -76,7 +76,7 @@ class _AuthDialogState extends State<AuthDialog> {
           padding: const EdgeInsets.all(16.0),
           child: Container(
             width: 400,
-            color: Colors.white,
+            color: Theme.of(context).backgroundColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -85,7 +85,7 @@ class _AuthDialogState extends State<AuthDialog> {
                   child: Text(
                     'EXPLORE',
                     style: TextStyle(
-                      color: Colors.blueGrey[800],
+                      color: Theme.of(context).textTheme.headline1.color,
                       fontSize: 24,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'Email address',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.blueGrey[900],
+                      color: Theme.of(context).textTheme.subtitle2.color,
                       fontSize: 18,
                       // fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
@@ -132,6 +132,7 @@ class _AuthDialogState extends State<AuthDialog> {
                       FocusScope.of(context)
                           .requestFocus(textFocusNodePassword);
                     },
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       border: new OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -166,7 +167,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'Password',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Colors.blueGrey[900],
+                      color: Theme.of(context).textTheme.subtitle2.color,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 3,
@@ -195,6 +196,7 @@ class _AuthDialogState extends State<AuthDialog> {
                       FocusScope.of(context)
                           .requestFocus(textFocusNodePassword);
                     },
+                    style: TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       border: new OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -442,7 +444,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'By proceeding, you agree to our Terms of Use and confirm you have read our Privacy Policy.',
                     maxLines: 2,
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).textTheme.subtitle2.color,
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
                       // letterSpacing: 3,
