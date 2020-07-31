@@ -118,7 +118,7 @@ class _AuthDialogState extends State<AuthDialog> {
                   ),
                   child: TextField(
                     focusNode: textFocusNodeEmail,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                     controller: textControllerEmail,
                     autofocus: false,
