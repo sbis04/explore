@@ -6,29 +6,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
 
-bool authSignedIn;
-// bool detailsUploaded;
 String uid;
 String name;
 String userEmail;
 String imageUrl;
 
-/// The main Firestore collection
-// final CollectionReference mainCollection =
-//     Firestore.instance.collection('sofia');
-
-// Use this for production
-// final DocumentReference documentReference = mainCollection.document('prod');
-
-// Use this for testing
-// final DocumentReference documentReference = mainCollection.document('test');
-
 /// For checking if the user is already signed into the
 /// app using Google Sign In
 Future getUser() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  authSignedIn = prefs.getBool('auth') ?? false;
-  // detailsUploaded = prefs.getBool('details_uploaded') ?? false;
+  bool authSignedIn = prefs.getBool('auth') ?? false;
 
   final FirebaseUser user = await _auth.currentUser();
 
@@ -79,7 +66,6 @@ Future<String> signInWithGoogle() async {
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setBool('auth', true);
-  authSignedIn = true;
 
   return 'Google sign in successful, User UID: ${user.uid}';
 }
@@ -101,13 +87,6 @@ Future<String> registerWithEmailPassword(String email, String password) async {
 
   assert(!user.isAnonymous);
   assert(await user.getIdToken() != null);
-
-  // final FirebaseUser currentUser = await _auth.currentUser();
-  // assert(user.uid == currentUser.uid);
-
-  // SharedPreferences prefs = await SharedPreferences.getInstance();
-  // prefs.setBool('auth', true);
-  // authSignedIn = true;
 
   return 'Successfully registered, User UID: ${user.uid}';
 }
@@ -135,7 +114,6 @@ Future<String> signInWithEmailPassword(String email, String password) async {
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setBool('auth', true);
-  authSignedIn = true;
 
   return 'Successfully logged in, User UID: ${user.uid}';
 }
@@ -145,7 +123,6 @@ Future<String> signOut() async {
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setBool('auth', false);
-  authSignedIn = false;
 
   uid = null;
   userEmail = null;
@@ -159,7 +136,11 @@ void signOutGoogle() async {
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setBool('auth', false);
-  authSignedIn = false;
 
-  print("User Sign Out");
+  uid = null;
+  name = null;
+  userEmail = null;
+  imageUrl = null;
+
+  print("User signed out of Google account");
 }
