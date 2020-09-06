@@ -29,13 +29,15 @@ class _GoogleButtonState extends State<GoogleButton> {
           });
           await signInWithGoogle().then((result) {
             print(result);
-            Navigator.of(context).pop();
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                fullscreenDialog: true,
-                builder: (context) => HomePage(),
-              ),
-            );
+            if (result != null) {
+              Navigator.of(context).pop();
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  fullscreenDialog: true,
+                  builder: (context) => HomePage(),
+                ),
+              );
+            }
           }).catchError((error) {
             print('Registration Error: $error');
           });
