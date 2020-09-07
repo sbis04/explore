@@ -49,9 +49,9 @@ Future<String> signInWithGoogle() async {
     idToken: googleSignInAuthentication.idToken,
   );
 
-  final UserCredential authResult =
+  final UserCredential userCredential =
       await _auth.signInWithCredential(credential);
-  final User user = authResult.user;
+  final User user = userCredential.user;
 
   if (user != null) {
     // Checking if email and name is null
@@ -83,12 +83,13 @@ Future<String> signInWithGoogle() async {
 Future<String> registerWithEmailPassword(String email, String password) async {
   await Firebase.initializeApp();
 
-  final UserCredential authResult = await _auth.createUserWithEmailAndPassword(
+  final UserCredential userCredential =
+      await _auth.createUserWithEmailAndPassword(
     email: email,
     password: password,
   );
 
-  final User user = authResult.user;
+  final User user = userCredential.user;
 
   if (user != null) {
     // checking if uid or email is null
@@ -110,12 +111,12 @@ Future<String> registerWithEmailPassword(String email, String password) async {
 Future<String> signInWithEmailPassword(String email, String password) async {
   await Firebase.initializeApp();
 
-  final UserCredential authResult = await _auth.signInWithEmailAndPassword(
+  final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
     email: email,
     password: password,
   );
 
-  final User user = authResult.user;
+  final User user = userCredential.user;
 
   if (user != null) {
     // checking if uid or email is null
