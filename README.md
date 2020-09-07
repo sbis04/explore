@@ -1,3 +1,5 @@
+<a href="https://explore.codemagic.app/"><h3 align="center">Try the web app here</h3></a>
+
 <p align="center">
   <img src="https://github.com/sbis04/explore/raw/master/screenshots/explore_cover_updated.gif" alt="Explore Cover"/>
 </p>
