@@ -250,21 +250,23 @@ class _AuthDialogState extends State<AuthDialog> {
                                         textControllerEmail.text,
                                         textControllerPassword.text)
                                     .then((result) {
-                                  print(result);
-                                  setState(() {
-                                    loginStatus =
-                                        'You have successfully logged in';
-                                    loginStringColor = Colors.green;
-                                  });
-                                  Future.delayed(Duration(milliseconds: 500),
-                                      () {
-                                    Navigator.of(context).pop();
-                                    Navigator.of(context)
-                                        .pushReplacement(MaterialPageRoute(
-                                      fullscreenDialog: true,
-                                      builder: (context) => HomePage(),
-                                    ));
-                                  });
+                                  if (result != null) {
+                                    print(result);
+                                    setState(() {
+                                      loginStatus =
+                                          'You have successfully logged in';
+                                      loginStringColor = Colors.green;
+                                    });
+                                    Future.delayed(Duration(milliseconds: 500),
+                                        () {
+                                      Navigator.of(context).pop();
+                                      Navigator.of(context)
+                                          .pushReplacement(MaterialPageRoute(
+                                        fullscreenDialog: true,
+                                        builder: (context) => HomePage(),
+                                      ));
+                                    });
+                                  }
                                 }).catchError((error) {
                                   print('Login Error: $error');
                                   setState(() {
@@ -344,12 +346,14 @@ class _AuthDialogState extends State<AuthDialog> {
                                         textControllerEmail.text,
                                         textControllerPassword.text)
                                     .then((result) {
-                                  setState(() {
-                                    loginStatus =
-                                        'You have registered successfully';
-                                    loginStringColor = Colors.green;
-                                  });
-                                  print(result);
+                                  if (result != null) {
+                                    setState(() {
+                                      loginStatus =
+                                          'You have registered successfully';
+                                      loginStringColor = Colors.green;
+                                    });
+                                    print(result);
+                                  }
                                 }).catchError((error) {
                                   print('Registration Error: $error');
                                   setState(() {
