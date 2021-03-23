@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 class ExploreDrawer extends StatelessWidget {
   const ExploreDrawer({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.blueGrey[900],
+        color: Colors.blueGrey.shade900,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -26,7 +26,7 @@ class ExploreDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Divider(
-                  color: Colors.blueGrey[400],
+                  color: Colors.blueGrey.shade400,
                   thickness: 2,
                 ),
               ),
@@ -40,7 +40,7 @@ class ExploreDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Divider(
-                  color: Colors.blueGrey[400],
+                  color: Colors.blueGrey.shade400,
                   thickness: 2,
                 ),
               ),
@@ -54,7 +54,7 @@ class ExploreDrawer extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Divider(
-                  color: Colors.blueGrey[400],
+                  color: Colors.blueGrey.shade400,
                   thickness: 2,
                 ),
               ),
@@ -71,7 +71,7 @@ class ExploreDrawer extends StatelessWidget {
                   child: Text(
                     'Copyright © 2020 | EXPLORE',
                     style: TextStyle(
-                      color: Colors.blueGrey[300],
+                      color: Colors.blueGrey.shade300,
                       fontSize: 14,
                     ),
                   ),

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class DestinationHeading extends StatelessWidget {
   const DestinationHeading({
-    Key key,
-    @required this.screenSize,
+    Key? key,
+    required this.screenSize,
   }) : super(key: key);
 
   final Size screenSize;
@@ -18,7 +18,6 @@ class DestinationHeading extends StatelessWidget {
               bottom: screenSize.height / 20,
             ),
             width: screenSize.width,
-            // color: Colors.black,
             child: Text(
               'Destinations diversity',
               textAlign: TextAlign.center,
@@ -35,7 +34,6 @@ class DestinationHeading extends StatelessWidget {
               bottom: screenSize.height / 15,
             ),
             width: screenSize.width,
-            // color: Colors.black,
             child: Text(
               'Destinations diversity',
               textAlign: TextAlign.center,

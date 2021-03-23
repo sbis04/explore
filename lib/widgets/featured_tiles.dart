@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class FeaturedTiles extends StatelessWidget {
   FeaturedTiles({
-    Key key,
-    @required this.screenSize,
+    Key? key,
+    required this.screenSize,
   }) : super(key: key);
 
   final Size screenSize;

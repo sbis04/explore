@@ -15,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController _scrollController;
+  final ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
   double _opacity = 0;
 
@@ -27,7 +27,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    _scrollController = ScrollController();
     _scrollController.addListener(_scrollListener);
     super.initState();
   }
@@ -43,7 +42,7 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
-              backgroundColor: Colors.blueGrey[900].withOpacity(_opacity),
+              backgroundColor: Colors.blueGrey.shade900.withOpacity(_opacity),
               elevation: 0,
               title: Text(
                 'EXPLORE',
@@ -95,7 +94,6 @@ class _HomePageState extends State<HomePage> {
                 )
               ],
             ),
-            // SizedBox(height: screenSize.height / 8),
             DestinationHeading(screenSize: screenSize),
             DestinationCarousel(),
             SizedBox(height: screenSize.height / 10),

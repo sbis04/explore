@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class FeaturedHeading extends StatelessWidget {
   const FeaturedHeading({
-    Key key,
-    this.screenSize,
+    Key? key,
+    required this.screenSize,
   }) : super(key: key);
 
   final Size screenSize;

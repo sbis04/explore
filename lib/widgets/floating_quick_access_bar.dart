@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class FloatingQuickAccessBar extends StatefulWidget {
   const FloatingQuickAccessBar({
-    Key key,
-    @required this.screenSize,
+    Key? key,
+    required this.screenSize,
   }) : super(key: key);
 
   final Size screenSize;

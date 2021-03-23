@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -61,7 +61,7 @@ class BottomBar extends StatelessWidget {
                 Text(
                   'Copyright © 2020 | EXPLORE',
                   style: TextStyle(
-                    color: Colors.blueGrey[300],
+                    color: Colors.blueGrey.shade300,
                     fontSize: 14,
                   ),
                 ),
@@ -119,7 +119,7 @@ class BottomBar extends StatelessWidget {
                 Text(
                   'Copyright © 2020 | EXPLORE',
                   style: TextStyle(
-                    color: Colors.blueGrey[300],
+                    color: Colors.blueGrey.shade300,
                     fontSize: 14,
                   ),
                 ),
