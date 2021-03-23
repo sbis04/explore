@@ -1,3 +1,5 @@
+> The project has been updated to **Flutter 2.0** with sound null-safety support :rocket:
+
 <p align="center">
   <img src="https://github.com/sbis04/explore/raw/master/screenshots/explore_cover_updated.gif" alt="Explore Cover"/>
 </p>
