@@ -37,7 +37,7 @@ class _TopBarContentsState extends State<TopBarContents> {
               Text(
                 'EXPLORE',
                 style: TextStyle(
-                  color: Colors.blueGrey[100],
+                  color: Colors.blueGrey.shade100,
                   fontSize: 20,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.w400,
@@ -65,7 +65,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             'Discover',
                             style: TextStyle(
                               color: _isHovering[0]
-                                  ? Colors.blue[200]
+                                  ? Colors.blue.shade200
                                   : Colors.white,
                             ),
                           ),
