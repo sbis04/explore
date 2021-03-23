@@ -28,7 +28,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
-        color: Colors.blueGrey[900]!.withOpacity(widget.opacity),
+        color: Colors.blueGrey.shade900.withOpacity(widget.opacity),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Row(
