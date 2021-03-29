@@ -1,4 +1,4 @@
-import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:explore/widgets/auth_dialog.dart';
@@ -135,10 +135,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                 highlightColor: Colors.transparent,
                 color: Colors.white,
                 onPressed: () {
-                  DynamicTheme.of(context).setBrightness(
-                      Theme.of(context).brightness == Brightness.dark
-                          ? Brightness.light
-                          : Brightness.dark);
+                  // DynamicTheme.of(context).setBrightness(
+                  //     Theme.of(context).brightness == Brightness.dark
+                  //         ? Brightness.light
+                  //         : Brightness.dark);
+
+                  EasyDynamicTheme.of(context).changeTheme();
                 },
               ),
               SizedBox(
@@ -170,7 +172,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           CircleAvatar(
                             radius: 15,
                             backgroundImage: imageUrl != null
-                                ? NetworkImage(imageUrl)
+                                ? NetworkImage(imageUrl!)
                                 : null,
                             child: imageUrl == null
                                 ? Icon(
@@ -181,7 +183,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           ),
                           SizedBox(width: 5),
                           Text(
-                            name ?? userEmail,
+                            name ?? userEmail!,
                             style: TextStyle(
                               color: _isHovering[3]
                                   ? Colors.white

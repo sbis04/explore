@@ -12,8 +12,8 @@ class WebScrollbar extends StatefulWidget {
   final bool isAlwaysShown;
 
   WebScrollbar({
-    @required this.child,
-    @required this.controller,
+    required this.child,
+    required this.controller,
     this.heightFraction = 0.20,
     this.width = 8,
     this.color = Colors.black45,
@@ -35,8 +35,8 @@ class WebScrollbar extends StatefulWidget {
 
 class _WebScrollbarState extends State<WebScrollbar> {
   double _scrollPosition = 0;
-  bool _isUpdating;
-  Timer timer;
+  late bool _isUpdating;
+  late Timer timer;
 
   _scrollListener() {
     setState(() {
@@ -90,7 +90,11 @@ class _WebScrollbarState extends State<WebScrollbar> {
           AnimatedOpacity(
             opacity: widget.isAlwaysShown
                 ? 1
-                : widget.controller.hasClients ? _isUpdating ? 1 : 0 : 0,
+                : widget.controller.hasClients
+                    ? _isUpdating
+                        ? 1
+                        : 0
+                    : 0,
             duration: Duration(milliseconds: 300),
             child: Container(
               alignment: Alignment.centerRight,

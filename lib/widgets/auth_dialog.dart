@@ -10,21 +10,21 @@ class AuthDialog extends StatefulWidget {
 }
 
 class _AuthDialogState extends State<AuthDialog> {
-  TextEditingController textControllerEmail;
-  FocusNode textFocusNodeEmail;
+  late TextEditingController textControllerEmail;
+  late FocusNode textFocusNodeEmail;
   bool _isEditingEmail = false;
 
-  TextEditingController textControllerPassword;
-  FocusNode textFocusNodePassword;
+  late TextEditingController textControllerPassword;
+  late FocusNode textFocusNodePassword;
   bool _isEditingPassword = false;
 
   bool _isRegistering = false;
   bool _isLoggingIn = false;
 
-  String loginStatus;
+  String? loginStatus;
   Color loginStringColor = Colors.green;
 
-  String _validateEmail(String value) {
+  String? _validateEmail(String value) {
     value = value.trim();
 
     if (textControllerEmail.text != null) {
@@ -39,7 +39,7 @@ class _AuthDialogState extends State<AuthDialog> {
     return null;
   }
 
-  String _validatePassword(String value) {
+  String? _validatePassword(String value) {
     value = value.trim();
 
     if (textControllerEmail.text != null) {
@@ -57,8 +57,8 @@ class _AuthDialogState extends State<AuthDialog> {
   void initState() {
     textControllerEmail = TextEditingController();
     textControllerPassword = TextEditingController();
-    textControllerEmail.text = null;
-    textControllerPassword.text = null;
+    textControllerEmail.text = '';
+    textControllerPassword.text = '';
     textFocusNodeEmail = FocusNode();
     textFocusNodePassword = FocusNode();
     super.initState();
@@ -85,7 +85,7 @@ class _AuthDialogState extends State<AuthDialog> {
                   child: Text(
                     'EXPLORE',
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.headline1.color,
+                      color: Theme.of(context).textTheme.headline1!.color,
                       fontSize: 24,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
@@ -103,7 +103,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'Email address',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.subtitle2!.color,
                       fontSize: 18,
                       // fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
@@ -137,7 +137,7 @@ class _AuthDialogState extends State<AuthDialog> {
                       border: new OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Colors.blueGrey[800],
+                          color: Colors.blueGrey[800]!,
                           width: 3,
                         ),
                       ),
@@ -167,7 +167,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'Password',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.subtitle2!.color,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 3,
@@ -201,7 +201,7 @@ class _AuthDialogState extends State<AuthDialog> {
                       border: new OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
-                          color: Colors.blueGrey[800],
+                          color: Colors.blueGrey[800]!,
                           width: 3,
                         ),
                       ),
@@ -418,7 +418,7 @@ class _AuthDialogState extends State<AuthDialog> {
                             bottom: 20.0,
                           ),
                           child: Text(
-                            loginStatus,
+                            loginStatus!,
                             style: TextStyle(
                               color: loginStringColor,
                               fontSize: 14,
@@ -448,7 +448,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'By proceeding, you agree to our Terms of Use and confirm you have read our Privacy Policy.',
                     maxLines: 2,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2.color,
+                      color: Theme.of(context).textTheme.subtitle2!.color,
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
                       // letterSpacing: 3,

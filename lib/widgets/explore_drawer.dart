@@ -6,7 +6,7 @@ import 'auth_dialog.dart';
 
 class ExploreDrawer extends StatefulWidget {
   const ExploreDrawer({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -64,7 +64,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                         CircleAvatar(
                           radius: 20,
                           backgroundImage:
-                              imageUrl != null ? NetworkImage(imageUrl) : null,
+                              imageUrl != null ? NetworkImage(imageUrl!) : null,
                           child: imageUrl == null
                               ? Icon(
                                   Icons.account_circle,
@@ -74,7 +74,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                         ),
                         SizedBox(width: 10),
                         Text(
-                          name ?? userEmail,
+                          name ?? userEmail!,
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.white70,

@@ -1,4 +1,4 @@
-import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/carousel.dart';
@@ -19,20 +19,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController _scrollController;
+  ScrollController? _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
 
   _scrollListener() {
     setState(() {
-      _scrollPosition = _scrollController.position.pixels;
+      _scrollPosition = _scrollController!.position.pixels;
     });
   }
 
   @override
   void initState() {
     _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener);
+    _scrollController!.addListener(_scrollListener);
     super.initState();
   }
 
@@ -58,11 +58,13 @@ class _HomePageState extends State<HomePage> {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
-                    DynamicTheme.of(context).setBrightness(
-                        Theme.of(context).brightness == Brightness.dark
-                            ? Brightness.light
-                            : Brightness.dark);
-                    print(Theme.of(context).brightness);
+                    print('pressed');
+                    // DynamicTheme.of(context).setBrightness(
+                    //     Theme.of(context).brightness == Brightness.dark
+                    //         ? Brightness.light
+                    //         : Brightness.dark);
+                    // print(Theme.of(context).brightness);
+                    EasyDynamicTheme.of(context).changeTheme();
                   },
                 ),
               ],
@@ -87,7 +89,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.blueGrey.withOpacity(0.3),
         width: 10,
         heightFraction: 0.3,
-        controller: _scrollController,
+        controller: _scrollController!,
         child: SingleChildScrollView(
           controller: _scrollController,
           physics: ClampingScrollPhysics(),

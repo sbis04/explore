@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
