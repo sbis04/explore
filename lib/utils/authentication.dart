@@ -114,8 +114,6 @@ Future<User?> registerWithEmailPassword(String email, String password) async {
       uid = user.uid;
       userEmail = user.email;
     }
-
-    return null;
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
       print('The password provided is too weak.');
