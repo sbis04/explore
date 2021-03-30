@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class BottomBarColumn extends StatelessWidget {
-  final String? heading;
-  final String? s1;
-  final String? s2;
-  final String? s3;
+  final String heading;
+  final String s1;
+  final String s2;
+  final String s3;
 
   BottomBarColumn({
-    this.heading,
-    this.s1,
-    this.s2,
-    this.s3,
+    required this.heading,
+    required this.s1,
+    required this.s2,
+    required this.s3,
   });
 
   @override
@@ -21,7 +21,7 @@ class BottomBarColumn extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            heading!,
+            heading,
             style: TextStyle(
               color: Colors.blueGrey[300],
               fontSize: 18,
@@ -32,7 +32,7 @@ class BottomBarColumn extends StatelessWidget {
             height: 10,
           ),
           Text(
-            s1!,
+            s1,
             style: TextStyle(
               color: Colors.blueGrey[100],
               fontSize: 14,
@@ -40,7 +40,7 @@ class BottomBarColumn extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Text(
-            s2!,
+            s2,
             style: TextStyle(
               color: Colors.blueGrey[100],
               fontSize: 14,
@@ -48,7 +48,7 @@ class BottomBarColumn extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Text(
-            s3!,
+            s3,
             style: TextStyle(
               color: Colors.blueGrey[100],
               fontSize: 14,

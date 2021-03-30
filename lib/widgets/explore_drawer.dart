@@ -29,19 +29,25 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               userEmail == null
                   ? Container(
                       width: double.maxFinite,
-                      child: FlatButton(
-                        color: Colors.black,
-                        hoverColor: Colors.blueGrey[800],
-                        highlightColor: Colors.blueGrey[700],
+                      child: TextButton(
+                        // color: Colors.black,
+                        // hoverColor: Colors.blueGrey[800],
+                        // highlightColor: Colors.blueGrey[700],
+                        style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                         onPressed: () {
                           showDialog(
                             context: context,
                             builder: (context) => AuthDialog(),
                           );
                         },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.circular(15),
+                        // ),
                         child: Padding(
                           padding: EdgeInsets.only(
                             top: 15.0,
@@ -86,10 +92,16 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               userEmail != null
                   ? Container(
                       width: double.maxFinite,
-                      child: FlatButton(
-                        color: Colors.black,
-                        hoverColor: Colors.blueGrey[800],
-                        highlightColor: Colors.blueGrey[700],
+                      child: TextButton(
+                        // color: Colors.black,
+                        // hoverColor: Colors.blueGrey[800],
+                        // highlightColor: Colors.blueGrey[700],
+                        style: TextButton.styleFrom(
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
                         onPressed: _isProcessing
                             ? null
                             : () async {
@@ -111,9 +123,9 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                   _isProcessing = false;
                                 });
                               },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.circular(15),
+                        // ),
                         child: Padding(
                           padding: EdgeInsets.only(
                             top: 15.0,

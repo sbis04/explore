@@ -19,20 +19,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController? _scrollController;
+  late ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
 
   _scrollListener() {
     setState(() {
-      _scrollPosition = _scrollController!.position.pixels;
+      _scrollPosition = _scrollController.position.pixels;
     });
   }
 
   @override
   void initState() {
     _scrollController = ScrollController();
-    _scrollController!.addListener(_scrollListener);
+    _scrollController.addListener(_scrollListener);
     super.initState();
   }
 
@@ -58,12 +58,6 @@ class _HomePageState extends State<HomePage> {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
-                    print('pressed');
-                    // DynamicTheme.of(context).setBrightness(
-                    //     Theme.of(context).brightness == Brightness.dark
-                    //         ? Brightness.light
-                    //         : Brightness.dark);
-                    // print(Theme.of(context).brightness);
                     EasyDynamicTheme.of(context).changeTheme();
                   },
                 ),
@@ -89,7 +83,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Colors.blueGrey.withOpacity(0.3),
         width: 10,
         heightFraction: 0.3,
-        controller: _scrollController!,
+        controller: _scrollController,
         child: SingleChildScrollView(
           controller: _scrollController,
           physics: ClampingScrollPhysics(),
@@ -124,7 +118,6 @@ class _HomePageState extends State<HomePage> {
                   )
                 ],
               ),
-              // SizedBox(height: screenSize.height / 8),
               DestinationHeading(screenSize: screenSize),
               DestinationCarousel(),
               SizedBox(height: screenSize.height / 10),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class InfoText extends StatelessWidget {
-  final String? type;
-  final String? text;
+  final String type;
+  final String text;
 
-  InfoText({this.type, this.text});
+  InfoText({required this.type, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class InfoText extends StatelessWidget {
         ),
         Flexible(
           child: Text(
-            text!,
+            text,
             style: TextStyle(
               color: Colors.blueGrey[100],
               fontSize: 16,

@@ -19,15 +19,7 @@ class WebScrollbar extends StatefulWidget {
     this.color = Colors.black45,
     this.backgroundColor = Colors.black12,
     this.isAlwaysShown = false,
-  })  : assert(child != null),
-        assert(controller != null),
-        assert(heightFraction != null &&
-            heightFraction < 1.0 &&
-            heightFraction > 0.0),
-        assert(width != null),
-        assert(color != null),
-        assert(backgroundColor != null),
-        assert(isAlwaysShown != null);
+  }) : assert(heightFraction < 1.0 && heightFraction > 0.0);
 
   @override
   _WebScrollbarState createState() => _WebScrollbarState();
@@ -80,7 +72,6 @@ class _WebScrollbarState extends State<WebScrollbar> {
               });
             });
           }
-          // print(_isUpdating);
         }
         return true;
       },

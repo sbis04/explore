@@ -135,11 +135,6 @@ class _TopBarContentsState extends State<TopBarContents> {
                 highlightColor: Colors.transparent,
                 color: Colors.white,
                 onPressed: () {
-                  // DynamicTheme.of(context).setBrightness(
-                  //     Theme.of(context).brightness == Brightness.dark
-                  //         ? Brightness.light
-                  //         : Brightness.dark);
-
                   EasyDynamicTheme.of(context).changeTheme();
                 },
               ),
@@ -191,10 +186,16 @@ class _TopBarContentsState extends State<TopBarContents> {
                             ),
                           ),
                           SizedBox(width: 10),
-                          FlatButton(
-                            color: Colors.blueGrey,
-                            hoverColor: Colors.blueGrey[700],
-                            highlightColor: Colors.blueGrey[800],
+                          TextButton(
+                            // color: Colors.blueGrey,
+                            // hoverColor: Colors.blueGrey[700],
+                            // highlightColor: Colors.blueGrey[800],
+                            style: TextButton.styleFrom(
+                              primary: Colors.blueGrey,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                            ),
                             onPressed: _isProcessing
                                 ? null
                                 : () async {
@@ -216,9 +217,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       _isProcessing = false;
                                     });
                                   },
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: BorderRadius.circular(15),
+                            // ),
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: 8.0,
