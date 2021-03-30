@@ -21,8 +21,6 @@ class _GoogleButtonState extends State<GoogleButton> {
         color: Colors.white,
       ),
       child: OutlinedButton(
-        // highlightColor: Colors.blueGrey[100],
-        // splashColor: Colors.blueGrey[200],
         style: OutlinedButton.styleFrom(
           primary: Colors.blueGrey.shade100,
           shape: RoundedRectangleBorder(
@@ -53,12 +51,6 @@ class _GoogleButtonState extends State<GoogleButton> {
             _isProcessing = false;
           });
         },
-        // shape: RoundedRectangleBorder(
-        //   borderRadius: BorderRadius.circular(20),
-        //   side: BorderSide(color: Colors.blueGrey, width: 3),
-        // ),
-        // highlightElevation: 0,
-        // borderSide: BorderSide(color: Colors.blueGrey, width: 3),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
           child: _isProcessing

@@ -232,12 +232,6 @@ class _AuthDialogState extends State<AuthDialog> {
                         child: Container(
                           width: double.maxFinite,
                           child: TextButton(
-                            // color: Colors.blueGrey[800],
-                            // hoverColor: Colors.blueGrey[900],
-                            // highlightColor: Colors.black,
-                            // shape: RoundedRectangleBorder(
-                            //   borderRadius: BorderRadius.circular(15),
-                            // ),
                             style: TextButton.styleFrom(
                               primary: Colors.blueGrey.shade800,
                               shape: RoundedRectangleBorder(
@@ -332,9 +326,6 @@ class _AuthDialogState extends State<AuthDialog> {
                         child: Container(
                           width: double.maxFinite,
                           child: TextButton(
-                            // color: Colors.blueGrey[800],
-                            // hoverColor: Colors.blueGrey[900],
-                            // highlightColor: Colors.black,
                             style: TextButton.styleFrom(
                               primary: Colors.blueGrey.shade800,
                               shape: RoundedRectangleBorder(
@@ -343,55 +334,33 @@ class _AuthDialogState extends State<AuthDialog> {
                             ),
                             onPressed: () async {
                               setState(() {
-                                textFocusNodeEmail.unfocus();
-                                textFocusNodePassword.unfocus();
+                                _isRegistering = true;
                               });
-                              if (_validateEmail(textControllerEmail.text) ==
-                                      null &&
-                                  _validatePassword(
-                                          textControllerPassword.text) ==
-                                      null) {
-                                setState(() {
-                                  _isRegistering = true;
-                                });
-                                await registerWithEmailPassword(
-                                        textControllerEmail.text,
-                                        textControllerPassword.text)
-                                    .then((result) {
-                                  if (result != null) {
-                                    setState(() {
-                                      loginStatus =
-                                          'You have registered successfully';
-                                      loginStringColor = Colors.green;
-                                    });
-                                    print(result);
-                                  }
-                                }).catchError((error) {
-                                  print('Registration Error: $error');
+                              await registerWithEmailPassword(
+                                      textControllerEmail.text,
+                                      textControllerPassword.text)
+                                  .then((result) {
+                                if (result != null) {
                                   setState(() {
                                     loginStatus =
-                                        'Error occured while registering';
-                                    loginStringColor = Colors.red;
+                                        'You have registered successfully';
+                                    loginStringColor = Colors.green;
                                   });
-                                });
-                              } else {
+                                  print(result);
+                                }
+                              }).catchError((error) {
+                                print('Registration Error: $error');
                                 setState(() {
-                                  loginStatus = 'Please enter email & password';
+                                  loginStatus =
+                                      'Error occured while registering';
                                   loginStringColor = Colors.red;
                                 });
-                              }
+                              });
+
                               setState(() {
                                 _isRegistering = false;
-
-                                textControllerEmail.text = '';
-                                textControllerPassword.text = '';
-                                _isEditingEmail = false;
-                                _isEditingPassword = false;
                               });
                             },
-                            // shape: RoundedRectangleBorder(
-                            //   borderRadius: BorderRadius.circular(15),
-                            // ),
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: 15.0,

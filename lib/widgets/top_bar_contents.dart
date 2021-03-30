@@ -187,9 +187,6 @@ class _TopBarContentsState extends State<TopBarContents> {
                           ),
                           SizedBox(width: 10),
                           TextButton(
-                            // color: Colors.blueGrey,
-                            // hoverColor: Colors.blueGrey[700],
-                            // highlightColor: Colors.blueGrey[800],
                             style: TextButton.styleFrom(
                               primary: Colors.blueGrey,
                               shape: RoundedRectangleBorder(
@@ -217,9 +214,6 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       _isProcessing = false;
                                     });
                                   },
-                            // shape: RoundedRectangleBorder(
-                            //   borderRadius: BorderRadius.circular(15),
-                            // ),
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: 8.0,
