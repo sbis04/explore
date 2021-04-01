@@ -1,4 +1,4 @@
-import 'package:dynamic_theme/dynamic_theme.dart';
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/carousel.dart';
@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  ScrollController _scrollController;
+  late ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
 
@@ -56,11 +56,7 @@ class _HomePageState extends State<HomePage> {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
-                    DynamicTheme.of(context).setBrightness(
-                        Theme.of(context).brightness == Brightness.dark
-                            ? Brightness.light
-                            : Brightness.dark);
-                    print(Theme.of(context).brightness);
+                    EasyDynamicTheme.of(context).changeTheme();
                   },
                 ),
               ],

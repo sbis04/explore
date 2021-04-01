@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 
 class FeaturedHeading extends StatelessWidget {
   const FeaturedHeading({
-    Key key,
+    Key? key,
     this.screenSize,
   }) : super(key: key);
 
-  final Size screenSize;
+  final Size? screenSize;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: screenSize.height * 0.06,
-        left: screenSize.width / 15,
-        right: screenSize.width / 15,
+        top: screenSize!.height * 0.06,
+        left: screenSize!.width / 15,
+        right: screenSize!.width / 15,
       ),
       child: ResponsiveWidget.isSmallScreen(context)
           ? Column(

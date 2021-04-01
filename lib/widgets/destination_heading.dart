@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class DestinationHeading extends StatelessWidget {
   const DestinationHeading({
-    Key key,
-    @required this.screenSize,
+    Key? key,
+    required this.screenSize,
   }) : super(key: key);
 
   final Size screenSize;

@@ -7,10 +7,10 @@ class BottomBarColumn extends StatelessWidget {
   final String s3;
 
   BottomBarColumn({
-    this.heading,
-    this.s1,
-    this.s2,
-    this.s3,
+    required this.heading,
+    required this.s1,
+    required this.s2,
+    required this.s3,
   });
 
   @override

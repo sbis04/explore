@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ExploreDrawer extends StatelessWidget {
   const ExploreDrawer({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
