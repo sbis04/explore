@@ -1,3 +1,4 @@
+import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -313,7 +314,11 @@ class _AuthDialogState extends State<AuthDialog> {
                                       'Log in',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.white,
+                                        color: EasyDynamicTheme.of(context)
+                                                    .themeMode ==
+                                                ThemeMode.light
+                                            ? Colors.black
+                                            : Colors.white,
                                       ),
                                     ),
                             ),
@@ -382,7 +387,11 @@ class _AuthDialogState extends State<AuthDialog> {
                                       'Sign up',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.white,
+                                        color: EasyDynamicTheme.of(context)
+                                                    .themeMode ==
+                                                ThemeMode.light
+                                            ? Colors.black
+                                            : Colors.white,
                                       ),
                                     ),
                             ),
