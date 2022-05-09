@@ -1,11 +1,13 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:explore/pages/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:explore/utils/theme_data.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'screens/home_page.dart';
-
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(
     EasyDynamicThemeWidget(
       child: MyApp(),

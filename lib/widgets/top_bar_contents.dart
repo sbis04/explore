@@ -1,5 +1,5 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-import 'package:explore/screens/home_page.dart';
+import 'package:explore/pages/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:explore/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +41,7 @@ class _TopBarContentsState extends State<TopBarContents> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'EXPLORE',
+                'Ejemplo',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
@@ -68,7 +68,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Discover',
+                            'Descubre',
                             style: TextStyle(
                               color: _isHovering[0]
                                   ? Colors.blue[200]
@@ -104,7 +104,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Contact Us',
+                            'Contacto',
                             style: TextStyle(
                               color: _isHovering[1]
                                   ? Colors.blue[200]
@@ -157,7 +157,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                     : null,
                 child: userEmail == null
                     ? Text(
-                        'Sign in',
+                        'Iniciar sesión',
                         style: TextStyle(
                           color: _isHovering[3] ? Colors.white : Colors.white70,
                         ),
@@ -222,7 +222,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                               child: _isProcessing
                                   ? CircularProgressIndicator()
                                   : Text(
-                                      'Sign out',
+                                      'Cerrar sesión',
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.white,

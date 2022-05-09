@@ -24,7 +24,7 @@ class FeaturedHeading extends StatelessWidget {
               children: [
                 Row(),
                 Text(
-                  'Featured',
+                  'Destacados',
                   style: TextStyle(
                     fontSize: 24,
                     fontFamily: 'Montserrat',
@@ -33,7 +33,7 @@ class FeaturedHeading extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  'Unique wildlife tours & destinations',
+                  'Visita sitios increíbles y descubre nuevos lugares.',
                   textAlign: TextAlign.end,
                   style: Theme.of(context).primaryTextTheme.subtitle1,
                 ),
@@ -45,7 +45,7 @@ class FeaturedHeading extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  'Featured',
+                  'Destacados',
                   style: TextStyle(
                     fontSize: 40,
                     fontFamily: 'Montserrat',
@@ -54,7 +54,7 @@ class FeaturedHeading extends StatelessWidget {
                 ),
                 Expanded(
                   child: Text(
-                    'Unique wildlife tours & destinations',
+                    'Visita sitios increíbles y descubre nuevos lugares.',
                     textAlign: TextAlign.end,
                     style: Theme.of(context).primaryTextTheme.subtitle1,
                   ),

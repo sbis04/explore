@@ -1,4 +1,4 @@
-import 'package:explore/screens/home_page.dart';
+import 'package:explore/pages/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +54,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             bottom: 15.0,
                           ),
                           child: Text(
-                            'Sign in',
+                            'Iniciar sesión',
                             style: TextStyle(
                               fontSize: 20,
                               color: Colors.white,
@@ -134,7 +134,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                           child: _isProcessing
                               ? CircularProgressIndicator()
                               : Text(
-                                  'Sign out',
+                                  'Cerrar sesión',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: Colors.white,
@@ -170,7 +170,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 child: Align(
                   alignment: Alignment.bottomCenter,
                   child: Text(
-                    'Copyright © 2020 | EXPLORE',
+                    'Copyright © 2020 | PENEEXPLORE',
                     style: TextStyle(
                       color: Colors.blueGrey[300],
                       fontSize: 14,
