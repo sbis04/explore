@@ -15,7 +15,6 @@ String? imageUrl;
 /// For checking if the user is already signed into the
 /// app using Google Sign In
 Future getUser() async {
-  await Firebase.initializeApp();
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool authSignedIn = prefs.getBool('auth') ?? false;

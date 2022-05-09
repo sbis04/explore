@@ -17,19 +17,19 @@ class BottomBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BottomBarColumn(
-                      heading: 'ABOUT',
-                      s1: 'Contact Us',
-                      s2: 'About Us',
-                      s3: 'Careers',
+                      heading: 'Información',
+                      s1: 'Contacto',
+                      s2: 'Acerca de nosotros',
+                      s3: 'Empleos',
                     ),
                     BottomBarColumn(
-                      heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
+                      heading: 'Ayuda',
+                      s1: 'Pago',
+                      s2: 'Devoluciones',
                       s3: 'FAQ',
                     ),
                     BottomBarColumn(
-                      heading: 'SOCIAL',
+                      heading: 'Social',
                       s1: 'Twitter',
                       s2: 'Facebook',
                       s3: 'YouTube',
@@ -44,12 +44,12 @@ class BottomBar extends StatelessWidget {
                 SizedBox(height: 20),
                 InfoText(
                   type: 'Email',
-                  text: 'explore@gmail.com',
+                  text: 'ejemplo@gmail.com',
                 ),
                 SizedBox(height: 5),
                 InfoText(
-                  type: 'Address',
-                  text: '128, Trymore Road, Delft, MN - 56124',
+                  type: 'Dirección',
+                  text: 'Dirección de Ejemplo',
                 ),
                 SizedBox(height: 20),
                 Container(
@@ -59,7 +59,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | EXPLORE',
+                  'Copyright © 2020 | Ejemplo',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
@@ -74,19 +74,19 @@ class BottomBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BottomBarColumn(
-                      heading: 'ABOUT',
-                      s1: 'Contact Us',
-                      s2: 'About Us',
-                      s3: 'Careers',
+                      heading: 'Información',
+                      s1: 'Contacto',
+                      s2: 'Acerca de nosotros',
+                      s3: 'Empleos',
                     ),
                     BottomBarColumn(
-                      heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
+                      heading: 'Ayuda',
+                      s1: 'Pago',
+                      s2: 'Devoluciones',
                       s3: 'FAQ',
                     ),
                     BottomBarColumn(
-                      heading: 'SOCIAL',
+                      heading: 'Social',
                       s1: 'Twitter',
                       s2: 'Facebook',
                       s3: 'YouTube',
@@ -101,12 +101,12 @@ class BottomBar extends StatelessWidget {
                       children: [
                         InfoText(
                           type: 'Email',
-                          text: 'explore@gmail.com',
+                          text: 'ejemplo@gmail.com',
                         ),
                         SizedBox(height: 5),
                         InfoText(
-                          type: 'Address',
-                          text: '128, Trymore Road, Delft, MN - 56124',
+                          type: 'Dirección',
+                          text: 'Dirección de Ejemplo',
                         )
                       ],
                     ),
@@ -122,7 +122,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | EXPLORE',
+                  'Copyright © 2020 | Ejemplo',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,

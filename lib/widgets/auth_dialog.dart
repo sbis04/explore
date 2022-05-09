@@ -1,4 +1,4 @@
-import 'package:explore/screens/home_page.dart';
+import 'package:explore/pages/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
 

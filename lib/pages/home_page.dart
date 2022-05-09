@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
               title: Text(
-                'EXPLORE',
+                'EJEMPLO',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
