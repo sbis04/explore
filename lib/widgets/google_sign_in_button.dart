@@ -1,10 +1,14 @@
+import 'dart:developer';
+
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
 class GoogleButton extends StatefulWidget {
+  const GoogleButton({super.key});
+
   @override
-  _GoogleButtonState createState() => _GoogleButtonState();
+  State<StatefulWidget> createState() => _GoogleButtonState();
 }
 
 class _GoogleButtonState extends State<GoogleButton> {
@@ -16,16 +20,16 @@ class _GoogleButtonState extends State<GoogleButton> {
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: Colors.blueGrey, width: 3),
+          side: const BorderSide(color: Colors.blueGrey, width: 3),
         ),
         color: Colors.white,
       ),
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          primary: Colors.blueGrey.shade100,
+          foregroundColor: Colors.blueGrey.shade100,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
-            side: BorderSide(color: Colors.blueGrey, width: 3),
+            side: const BorderSide(color: Colors.blueGrey, width: 3),
           ),
           elevation: 0,
         ),
@@ -34,18 +38,18 @@ class _GoogleButtonState extends State<GoogleButton> {
             _isProcessing = true;
           });
           await signInWithGoogle().then((result) {
-            print(result);
+            log(result.toString());
             if (result != null) {
               Navigator.of(context).pop();
               Navigator.of(context).pushReplacement(
                 MaterialPageRoute(
                   fullscreenDialog: true,
-                  builder: (context) => HomePage(),
+                  builder: (context) => const HomePage(),
                 ),
               );
             }
           }).catchError((error) {
-            print('Registration Error: $error');
+            log('Registration Error: $error');
           });
           setState(() {
             _isProcessing = false;
@@ -54,12 +58,12 @@ class _GoogleButtonState extends State<GoogleButton> {
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
           child: _isProcessing
-              ? CircularProgressIndicator(
-                  valueColor: new AlwaysStoppedAnimation<Color>(
+              ? const CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
                     Colors.blueGrey,
                   ),
                 )
-              : Row(
+              : const Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -68,7 +72,7 @@ class _GoogleButtonState extends State<GoogleButton> {
                       height: 30.0,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: EdgeInsets.only(left: 20),
                       child: Text(
                         'Continue with Google',
                         style: TextStyle(

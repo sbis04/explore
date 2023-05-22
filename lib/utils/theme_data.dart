@@ -1,47 +1,53 @@
 import 'package:flutter/material.dart';
 
 var lightThemeData = ThemeData(
-  primarySwatch: Colors.blueGrey,
-  backgroundColor: Colors.white,
+  useMaterial3: true,
   cardColor: Colors.blueGrey[50],
   primaryTextTheme: TextTheme(
-    button: TextStyle(
+    labelLarge: TextStyle(
       color: Colors.blueGrey,
       decorationColor: Colors.blueGrey[300],
     ),
-    subtitle2: TextStyle(
+    titleSmall: TextStyle(
       color: Colors.blueGrey[900],
     ),
-    subtitle1: TextStyle(
+    titleMedium: const TextStyle(
       color: Colors.black,
     ),
-    headline1: TextStyle(color: Colors.blueGrey[800]),
+    displayLarge: TextStyle(color: Colors.blueGrey[800]),
   ),
-  bottomAppBarColor: Colors.blueGrey[900],
-  iconTheme: IconThemeData(color: Colors.blueGrey),
-  brightness: Brightness.light,
+  iconTheme: const IconThemeData(color: Colors.blueGrey),
+  colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blueGrey).copyWith(
+    background: Colors.white,
+    brightness: Brightness.light,
+  ),
+  bottomAppBarTheme: BottomAppBarTheme(color: Colors.blueGrey[900]),
 );
 
 var darkThemeData = ThemeData(
-  primarySwatch: Colors.blueGrey,
-  backgroundColor: Colors.blueGrey[900],
+  useMaterial3: true,
   cardColor: Colors.black,
   primaryTextTheme: TextTheme(
-    button: TextStyle(
+    labelLarge: TextStyle(
       color: Colors.blueGrey[200],
       decorationColor: Colors.blueGrey[50],
     ),
-    subtitle2: TextStyle(
+    titleSmall: const TextStyle(
       color: Colors.white,
     ),
-    subtitle1: TextStyle(
+    titleMedium: TextStyle(
       color: Colors.blueGrey[300],
     ),
-    headline1: TextStyle(
+    displayLarge: const TextStyle(
       color: Colors.white70,
     ),
   ),
-  bottomAppBarColor: Colors.black,
   iconTheme: IconThemeData(color: Colors.blueGrey[200]),
-  brightness: Brightness.dark,
+  colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blueGrey).copyWith(
+    background: Colors.blueGrey[900],
+    brightness: Brightness.dark,
+  ),
+  bottomAppBarTheme: const BottomAppBarTheme(
+    color: Colors.black,
+  ),
 );

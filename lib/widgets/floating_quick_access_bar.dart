@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 
 class FloatingQuickAccessBar extends StatefulWidget {
   const FloatingQuickAccessBar({
-    Key? key,
+    super.key,
     required this.screenSize,
-  }) : super(key: key);
+  });
 
   final Size screenSize;
 
   @override
-  _FloatingQuickAccessBarState createState() => _FloatingQuickAccessBarState();
+  State<StatefulWidget> createState() => _FloatingQuickAccessBarState();
 }
 
 class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
-  List _isHovering = [false, false, false, false];
+  final _isHovering = [false, false, false, false];
   List<Widget> rowElements = [];
 
   List<String> items = ['Destination', 'Dates', 'People', 'Experience'];
@@ -41,8 +41,8 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
           items[i],
           style: TextStyle(
             color: _isHovering[i]
-                ? Theme.of(context).primaryTextTheme.button!.decorationColor
-                : Theme.of(context).primaryTextTheme.button!.color,
+                ? Theme.of(context).primaryTextTheme.labelLarge!.decorationColor
+                : Theme.of(context).primaryTextTheme.labelLarge!.color,
           ),
         ),
       );
@@ -108,7 +108,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                                   style: TextStyle(
                                       color: Theme.of(context)
                                           .primaryTextTheme
-                                          .button!
+                                          .labelLarge!
                                           .color,
                                       fontSize: 16),
                                 ),

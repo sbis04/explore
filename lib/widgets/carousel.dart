@@ -3,8 +3,10 @@ import 'package:explore/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
 class DestinationCarousel extends StatefulWidget {
+  const DestinationCarousel({super.key});
+
   @override
-  _DestinationCarouselState createState() => _DestinationCarouselState();
+  State<StatefulWidget> createState() => _DestinationCarouselState();
 }
 
 class _DestinationCarouselState extends State<DestinationCarousel> {
@@ -12,12 +14,12 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
 
   final CarouselController _controller = CarouselController();
 
-  List _isHovering = [false, false, false, false, false, false, false];
-  List _isSelected = [true, false, false, false, false, false, false];
+  final _isHovering = [false, false, false, false, false, false, false];
+  final _isSelected = [true, false, false, false, false, false, false];
 
   int _current = 0;
 
-  final List<String> images = [
+  final images = [
     'assets/images/asia.jpg',
     'assets/images/africa.jpg',
     'assets/images/europe.jpg',
@@ -26,7 +28,7 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
     'assets/images/antarctica.jpg',
   ];
 
-  final List<String> places = [
+  final places = [
     'ASIA',
     'AFRICA',
     'EUROPE',
@@ -35,19 +37,17 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
     'ANTARCTICA',
   ];
 
-  List<Widget> generateImageTiles(screenSize) {
-    return images
-        .map(
-          (element) => ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image.asset(
-              element,
-              fit: BoxFit.cover,
-            ),
+  List<Widget> generateImageTiles(screenSize) => images
+      .map(
+        (element) => ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Image.asset(
+            element,
+            fit: BoxFit.cover,
           ),
-        )
-        .toList();
-  }
+        ),
+      )
+      .toList();
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +60,8 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
           items: imageSliders,
           options: CarouselOptions(
               scrollPhysics: ResponsiveWidget.isSmallScreen(context)
-                  ? PageScrollPhysics()
-                  : NeverScrollableScrollPhysics(),
+                  ? const PageScrollPhysics()
+                  : const NeverScrollableScrollPhysics(),
               enlargeCenterPage: true,
               aspectRatio: 18 / 8,
               autoPlay: true,
@@ -143,11 +143,11 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
                                             color: _isHovering[i]
                                                 ? Theme.of(context)
                                                     .primaryTextTheme
-                                                    .button!
+                                                    .labelLarge!
                                                     .decorationColor
                                                 : Theme.of(context)
                                                     .primaryTextTheme
-                                                    .button!
+                                                    .labelLarge!
                                                     .color,
                                           ),
                                         ),
@@ -159,11 +159,12 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
                                       maintainState: true,
                                       visible: _isSelected[i],
                                       child: AnimatedOpacity(
-                                        duration: Duration(milliseconds: 400),
+                                        duration:
+                                            const Duration(milliseconds: 400),
                                         opacity: _isSelected[i] ? 1 : 0,
                                         child: Container(
                                           height: 5,
-                                          decoration: BoxDecoration(
+                                          decoration: const BoxDecoration(
                                             color: Colors.blueGrey,
                                             borderRadius: BorderRadius.all(
                                               Radius.circular(10),

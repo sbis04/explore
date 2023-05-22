@@ -22,8 +22,8 @@ class FeaturedHeading extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Row(),
-                Text(
+                const Row(),
+                const Text(
                   'Featured',
                   style: TextStyle(
                     fontSize: 24,
@@ -31,20 +31,20 @@ class FeaturedHeading extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Text(
                   'Unique wildlife tours & destinations',
                   textAlign: TextAlign.end,
-                  style: Theme.of(context).primaryTextTheme.subtitle1,
+                  style: Theme.of(context).primaryTextTheme.titleMedium,
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
               ],
             )
           : Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Featured',
                   style: TextStyle(
                     fontSize: 40,
@@ -56,7 +56,7 @@ class FeaturedHeading extends StatelessWidget {
                   child: Text(
                     'Unique wildlife tours & destinations',
                     textAlign: TextAlign.end,
-                    style: Theme.of(context).primaryTextTheme.subtitle1,
+                    style: Theme.of(context).primaryTextTheme.titleMedium,
                   ),
                 ),
               ],

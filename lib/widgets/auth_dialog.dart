@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'google_sign_in_button.dart';
 
 class AuthDialog extends StatefulWidget {
+  const AuthDialog({super.key});
+
   @override
-  _AuthDialogState createState() => _AuthDialogState();
+  State<StatefulWidget> createState() => _AuthDialogState();
 }
 
 class _AuthDialogState extends State<AuthDialog> {
@@ -67,7 +69,7 @@ class _AuthDialogState extends State<AuthDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
@@ -76,7 +78,7 @@ class _AuthDialogState extends State<AuthDialog> {
           padding: const EdgeInsets.all(16.0),
           child: Container(
             width: 400,
-            color: Theme.of(context).backgroundColor,
+            color: Theme.of(context).colorScheme.background,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
@@ -85,7 +87,7 @@ class _AuthDialogState extends State<AuthDialog> {
                   child: Text(
                     'EXPLORE',
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.headline1!.color,
+                      color: Theme.of(context).textTheme.displayLarge!.color,
                       fontSize: 24,
                       fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
@@ -93,7 +95,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 20.0,
@@ -103,7 +105,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'Email address',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2!.color,
+                      color: Theme.of(context).textTheme.titleSmall!.color,
                       fontSize: 18,
                       // fontFamily: 'Montserrat',
                       fontWeight: FontWeight.bold,
@@ -132,9 +134,9 @@ class _AuthDialogState extends State<AuthDialog> {
                       FocusScope.of(context)
                           .requestFocus(textFocusNodePassword);
                     },
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                      border: new OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
                           color: Colors.blueGrey[800]!,
@@ -142,7 +144,7 @@ class _AuthDialogState extends State<AuthDialog> {
                         ),
                       ),
                       filled: true,
-                      hintStyle: new TextStyle(
+                      hintStyle: TextStyle(
                         color: Colors.blueGrey[300],
                       ),
                       hintText: "Email",
@@ -150,14 +152,14 @@ class _AuthDialogState extends State<AuthDialog> {
                       errorText: _isEditingEmail
                           ? _validateEmail(textControllerEmail.text)
                           : null,
-                      errorStyle: TextStyle(
+                      errorStyle: const TextStyle(
                         fontSize: 12,
                         color: Colors.redAccent,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 20.0,
@@ -167,7 +169,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     'Password',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2!.color,
+                      color: Theme.of(context).textTheme.titleSmall!.color,
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       // letterSpacing: 3,
@@ -196,9 +198,9 @@ class _AuthDialogState extends State<AuthDialog> {
                       FocusScope.of(context)
                           .requestFocus(textFocusNodePassword);
                     },
-                    style: TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                      border: new OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: BorderSide(
                           color: Colors.blueGrey[800]!,
@@ -206,7 +208,7 @@ class _AuthDialogState extends State<AuthDialog> {
                         ),
                       ),
                       filled: true,
-                      hintStyle: new TextStyle(
+                      hintStyle: TextStyle(
                         color: Colors.blueGrey[300],
                       ),
                       hintText: "Password",
@@ -214,7 +216,7 @@ class _AuthDialogState extends State<AuthDialog> {
                       errorText: _isEditingPassword
                           ? _validatePassword(textControllerPassword.text)
                           : null,
-                      errorStyle: TextStyle(
+                      errorStyle: const TextStyle(
                         fontSize: 12,
                         color: Colors.redAccent,
                       ),
@@ -233,7 +235,7 @@ class _AuthDialogState extends State<AuthDialog> {
                           width: double.maxFinite,
                           child: TextButton(
                             style: TextButton.styleFrom(
-                              primary: Colors.blueGrey.shade800,
+                              foregroundColor: Colors.blueGrey.shade800,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0),
                               ),
@@ -260,13 +262,13 @@ class _AuthDialogState extends State<AuthDialog> {
                                           'You have successfully logged in';
                                       loginStringColor = Colors.green;
                                     });
-                                    Future.delayed(Duration(milliseconds: 500),
-                                        () {
+                                    Future.delayed(
+                                        const Duration(milliseconds: 500), () {
                                       Navigator.of(context).pop();
                                       Navigator.of(context)
                                           .pushReplacement(MaterialPageRoute(
                                         fullscreenDialog: true,
-                                        builder: (context) => HomePage(),
+                                        builder: (context) => const HomePage(),
                                       ));
                                     });
                                   }
@@ -293,23 +295,23 @@ class _AuthDialogState extends State<AuthDialog> {
                               });
                             },
                             child: Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                 top: 15.0,
                                 bottom: 15.0,
                               ),
                               child: _isLoggingIn
-                                  ? SizedBox(
+                                  ? const SizedBox(
                                       height: 16,
                                       width: 16,
                                       child: CircularProgressIndicator(
                                         strokeWidth: 2,
                                         valueColor:
-                                            new AlwaysStoppedAnimation<Color>(
+                                            AlwaysStoppedAnimation<Color>(
                                           Colors.white,
                                         ),
                                       ),
                                     )
-                                  : Text(
+                                  : const Text(
                                       'Log in',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -320,14 +322,14 @@ class _AuthDialogState extends State<AuthDialog> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       Flexible(
                         flex: 1,
                         child: Container(
                           width: double.maxFinite,
                           child: TextButton(
                             style: TextButton.styleFrom(
-                              primary: Colors.blueGrey.shade800,
+                              foregroundColor: Colors.blueGrey.shade800,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
@@ -362,23 +364,23 @@ class _AuthDialogState extends State<AuthDialog> {
                               });
                             },
                             child: Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                 top: 15.0,
                                 bottom: 15.0,
                               ),
                               child: _isRegistering
-                                  ? SizedBox(
+                                  ? const SizedBox(
                                       height: 16,
                                       width: 16,
                                       child: CircularProgressIndicator(
                                         strokeWidth: 2,
                                         valueColor:
-                                            new AlwaysStoppedAnimation<Color>(
+                                            AlwaysStoppedAnimation<Color>(
                                           Colors.white,
                                         ),
                                       ),
                                     )
-                                  : Text(
+                                  : const Text(
                                       'Sign up',
                                       style: TextStyle(
                                         fontSize: 14,
@@ -420,16 +422,16 @@ class _AuthDialogState extends State<AuthDialog> {
                     color: Colors.blueGrey[200],
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Center(child: GoogleButton()),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     'By proceeding, you agree to our Terms of Use and confirm you have read our Privacy Policy.',
                     maxLines: 2,
                     style: TextStyle(
-                      color: Theme.of(context).textTheme.subtitle2!.color,
+                      color: Theme.of(context).textTheme.titleSmall!.color,
                       fontSize: 14,
                       fontWeight: FontWeight.w300,
                       // letterSpacing: 3,

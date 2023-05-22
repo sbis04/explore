@@ -19,7 +19,7 @@ class DestinationHeading extends StatelessWidget {
             ),
             width: screenSize.width,
             // color: Colors.black,
-            child: Text(
+            child: const Text(
               'Destinations diversity',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -36,7 +36,7 @@ class DestinationHeading extends StatelessWidget {
             ),
             width: screenSize.width,
             // color: Colors.black,
-            child: Text(
+            child: const Text(
               'Destinations diversity',
               textAlign: TextAlign.center,
               style: TextStyle(

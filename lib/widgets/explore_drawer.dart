@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -5,12 +7,10 @@ import 'package:flutter/material.dart';
 import 'auth_dialog.dart';
 
 class ExploreDrawer extends StatefulWidget {
-  const ExploreDrawer({
-    Key? key,
-  }) : super(key: key);
+  const ExploreDrawer({super.key});
 
   @override
-  _ExploreDrawerState createState() => _ExploreDrawerState();
+  State<StatefulWidget> createState() => _ExploreDrawerState();
 }
 
 class _ExploreDrawerState extends State<ExploreDrawer> {
@@ -34,7 +34,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                         // hoverColor: Colors.blueGrey[800],
                         // highlightColor: Colors.blueGrey[700],
                         style: TextButton.styleFrom(
-                          primary: Colors.black,
+                          foregroundColor: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
@@ -48,7 +48,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                         // shape: RoundedRectangleBorder(
                         //   borderRadius: BorderRadius.circular(15),
                         // ),
-                        child: Padding(
+                        child: const Padding(
                           padding: EdgeInsets.only(
                             top: 15.0,
                             bottom: 15.0,
@@ -72,23 +72,23 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                           backgroundImage:
                               imageUrl != null ? NetworkImage(imageUrl!) : null,
                           child: imageUrl == null
-                              ? Icon(
+                              ? const Icon(
                                   Icons.account_circle,
                                   size: 40,
                                 )
                               : Container(),
                         ),
-                        SizedBox(width: 10),
+                        const SizedBox(width: 10),
                         Text(
                           name ?? userEmail!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
                             color: Colors.white70,
                           ),
                         )
                       ],
                     ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               userEmail != null
                   ? Container(
                       width: double.maxFinite,
@@ -97,7 +97,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                         // hoverColor: Colors.blueGrey[800],
                         // highlightColor: Colors.blueGrey[700],
                         style: TextButton.styleFrom(
-                          primary: Colors.black,
+                          foregroundColor: Colors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
@@ -109,7 +109,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                   _isProcessing = true;
                                 });
                                 await signOut().then((result) {
-                                  print(result);
+                                  log(result);
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
                                       fullscreenDialog: true,
@@ -117,7 +117,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                     ),
                                   );
                                 }).catchError((error) {
-                                  print('Sign Out Error: $error');
+                                  log('Sign Out Error: $error');
                                 });
                                 setState(() {
                                   _isProcessing = false;
@@ -127,13 +127,13 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                         //   borderRadius: BorderRadius.circular(15),
                         // ),
                         child: Padding(
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             top: 15.0,
                             bottom: 15.0,
                           ),
                           child: _isProcessing
-                              ? CircularProgressIndicator()
-                              : Text(
+                              ? const CircularProgressIndicator()
+                              : const Text(
                                   'Sign out',
                                   style: TextStyle(
                                     fontSize: 20,
@@ -144,10 +144,10 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                       ),
                     )
                   : Container(),
-              userEmail != null ? SizedBox(height: 20) : Container(),
+              userEmail != null ? const SizedBox(height: 20) : Container(),
               InkWell(
                 onTap: () {},
-                child: Text(
+                child: const Text(
                   'Discover',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -161,7 +161,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               ),
               InkWell(
                 onTap: () {},
-                child: Text(
+                child: const Text(
                   'Contact Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),

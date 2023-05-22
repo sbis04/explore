@@ -1,28 +1,38 @@
+import 'dart:developer';
+
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:explore/firebase_options.dart';
 import 'package:explore/utils/authentication.dart';
 import 'package:explore/utils/theme_data.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/home_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     EasyDynamicThemeWidget(
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<StatefulWidget> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
   Future getUserInfo() async {
     await getUser();
     setState(() {});
-    print(uid);
+    log('UID: $uid');
   }
 
   @override
@@ -39,7 +49,7 @@ class _MyAppState extends State<MyApp> {
       darkTheme: darkThemeData,
       debugShowCheckedModeBanner: false,
       themeMode: EasyDynamicTheme.of(context).themeMode,
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:explore/screens/home_page.dart';
 import 'package:explore/utils/authentication.dart';
@@ -7,10 +9,10 @@ import 'package:flutter/material.dart';
 class TopBarContents extends StatefulWidget {
   final double opacity;
 
-  TopBarContents(this.opacity);
+  const TopBarContents(this.opacity, {super.key});
 
   @override
-  _TopBarContentsState createState() => _TopBarContentsState();
+  State<StatefulWidget> createState() => _TopBarContentsState();
 }
 
 class _TopBarContentsState extends State<TopBarContents> {
@@ -36,7 +38,7 @@ class _TopBarContentsState extends State<TopBarContents> {
       child: Container(
         color: Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -111,7 +113,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                   : Colors.white,
                             ),
                           ),
-                          SizedBox(height: 5),
+                          const SizedBox(height: 5),
                           Visibility(
                             maintainAnimation: true,
                             maintainState: true,
@@ -130,7 +132,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.brightness_6),
+                icon: const Icon(Icons.brightness_6),
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 color: Colors.white,
@@ -151,7 +153,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                     ? () {
                         showDialog(
                           context: context,
-                          builder: (context) => AuthDialog(),
+                          builder: (context) => const AuthDialog(),
                         );
                       }
                     : null,
@@ -170,13 +172,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                                 ? NetworkImage(imageUrl!)
                                 : null,
                             child: imageUrl == null
-                                ? Icon(
+                                ? const Icon(
                                     Icons.account_circle,
                                     size: 30,
                                   )
                                 : Container(),
                           ),
-                          SizedBox(width: 5),
+                          const SizedBox(width: 5),
                           Text(
                             name ?? userEmail!,
                             style: TextStyle(
@@ -185,10 +187,10 @@ class _TopBarContentsState extends State<TopBarContents> {
                                   : Colors.white70,
                             ),
                           ),
-                          SizedBox(width: 10),
+                          const SizedBox(width: 10),
                           TextButton(
                             style: TextButton.styleFrom(
-                              primary: Colors.blueGrey,
+                              foregroundColor: Colors.blueGrey,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
@@ -200,28 +202,29 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       _isProcessing = true;
                                     });
                                     await signOut().then((result) {
-                                      print(result);
+                                      log(result);
                                       Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(
                                           fullscreenDialog: true,
-                                          builder: (context) => HomePage(),
+                                          builder: (context) =>
+                                              const HomePage(),
                                         ),
                                       );
                                     }).catchError((error) {
-                                      print('Sign Out Error: $error');
+                                      log('Sign Out Error: $error');
                                     });
                                     setState(() {
                                       _isProcessing = false;
                                     });
                                   },
                             child: Padding(
-                              padding: EdgeInsets.only(
+                              padding: const EdgeInsets.only(
                                 top: 8.0,
                                 bottom: 8.0,
                               ),
                               child: _isProcessing
-                                  ? CircularProgressIndicator()
-                                  : Text(
+                                  ? const CircularProgressIndicator()
+                                  : const Text(
                                       'Sign out',
                                       style: TextStyle(
                                         fontSize: 14,

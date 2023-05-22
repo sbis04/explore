@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -15,7 +17,7 @@ String? imageUrl;
 /// For checking if the user is already signed into the
 /// app using Google Sign In
 Future getUser() async {
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   bool authSignedIn = prefs.getBool('auth') ?? false;
@@ -38,7 +40,7 @@ Future getUser() async {
 /// Retrieves some general user related information
 /// from their Google account for ease of the login process
 Future<User?> signInWithGoogle() async {
-  await Firebase.initializeApp();
+  // await Firebase.initializeApp();
 
   User? user;
 
@@ -51,7 +53,7 @@ Future<User?> signInWithGoogle() async {
 
       user = userCredential.user;
     } catch (e) {
-      print(e);
+      log(e.toString());
     }
   } else {
     final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -75,12 +77,12 @@ Future<User?> signInWithGoogle() async {
         user = userCredential.user;
       } on FirebaseAuthException catch (e) {
         if (e.code == 'account-exists-with-different-credential') {
-          print('The account already exists with a different credential.');
+          log('The account already exists with a different credential.');
         } else if (e.code == 'invalid-credential') {
-          print('Error occurred while accessing credentials. Try again.');
+          log('Error occurred while accessing credentials. Try again.');
         }
       } catch (e) {
-        print(e);
+        log(e.toString());
       }
     }
   }
@@ -116,12 +118,12 @@ Future<User?> registerWithEmailPassword(String email, String password) async {
     }
   } on FirebaseAuthException catch (e) {
     if (e.code == 'weak-password') {
-      print('The password provided is too weak.');
+      log('The password provided is too weak.');
     } else if (e.code == 'email-already-in-use') {
-      print('The account already exists for that email.');
+      log('The account already exists for that email.');
     }
   } catch (e) {
-    print(e);
+    log(e.toString());
   }
 
   return user;
@@ -147,9 +149,9 @@ Future<User?> signInWithEmailPassword(String email, String password) async {
     }
   } on FirebaseAuthException catch (e) {
     if (e.code == 'user-not-found') {
-      print('No user found for that email.');
+      log('No user found for that email.');
     } else if (e.code == 'wrong-password') {
-      print('Wrong password provided.');
+      log('Wrong password provided.');
     }
   }
 
@@ -181,5 +183,5 @@ void signOutGoogle() async {
   userEmail = null;
   imageUrl = null;
 
-  print("User signed out of Google account");
+  log("User signed out of Google account");
 }

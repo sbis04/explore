@@ -1,5 +1,4 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-import 'package:explore/widgets/web_scrollbar.dart';
 import 'package:explore/widgets/bottom_bar.dart';
 import 'package:explore/widgets/carousel.dart';
 import 'package:explore/widgets/destination_heading.dart';
@@ -14,8 +13,10 @@ import 'package:flutter/material.dart';
 class HomePage extends StatefulWidget {
   static const String route = '/';
 
+  const HomePage({super.key});
+
   @override
-  _HomePageState createState() => _HomePageState();
+  State<StatefulWidget> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
@@ -44,17 +45,19 @@ class _HomePageState extends State<HomePage> {
         : 1;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       extendBodyBehindAppBar: true,
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
-              backgroundColor:
-                  Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+              backgroundColor: Theme.of(context)
+                  .bottomAppBarTheme
+                  .color
+                  ?.withOpacity(_opacity),
               elevation: 0,
               centerTitle: true,
               actions: [
                 IconButton(
-                  icon: Icon(Icons.brightness_6),
+                  icon: const Icon(Icons.brightness_6),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
@@ -77,53 +80,42 @@ class _HomePageState extends State<HomePage> {
               preferredSize: Size(screenSize.width, 1000),
               child: TopBarContents(_opacity),
             ),
-      drawer: ExploreDrawer(),
-      body: WebScrollbar(
-        color: Colors.blueGrey,
-        backgroundColor: Colors.blueGrey.withOpacity(0.3),
-        width: 10,
-        heightFraction: 0.3,
+      drawer: const ExploreDrawer(),
+      body: SingleChildScrollView(
         controller: _scrollController,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          physics: ClampingScrollPhysics(),
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    child: SizedBox(
-                      height: screenSize.height * 0.45,
-                      width: screenSize.width,
-                      child: Image.asset(
-                        'assets/images/cover.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+        physics: const ClampingScrollPhysics(),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                SizedBox(
+                  height: screenSize.height * 0.45,
+                  width: screenSize.width,
+                  child: Image.asset(
+                    'assets/images/cover.jpg',
+                    fit: BoxFit.cover,
                   ),
-                  Column(
-                    children: [
-                      FloatingQuickAccessBar(screenSize: screenSize),
-                      Container(
-                        child: Column(
-                          children: [
-                            FeaturedHeading(
-                              screenSize: screenSize,
-                            ),
-                            FeaturedTiles(screenSize: screenSize)
-                          ],
+                ),
+                Column(
+                  children: [
+                    FloatingQuickAccessBar(screenSize: screenSize),
+                    Column(
+                      children: [
+                        FeaturedHeading(
+                          screenSize: screenSize,
                         ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              DestinationHeading(screenSize: screenSize),
-              DestinationCarousel(),
-              SizedBox(height: screenSize.height / 10),
-              BottomBar(),
-            ],
-          ),
+                        FeaturedTiles(screenSize: screenSize)
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+            DestinationHeading(screenSize: screenSize),
+            const DestinationCarousel(),
+            SizedBox(height: screenSize.height / 10),
+            const BottomBar(),
+          ],
         ),
       ),
     );
